@@ -1,5 +1,7 @@
 #include "ass.h"
 
+// Запись-чтение из файлов
+
 Conf::Conf(const QString &filename):file(filename){// конструктор
     file.open(QIODevice::ReadOnly);
     if (!file.exists()){

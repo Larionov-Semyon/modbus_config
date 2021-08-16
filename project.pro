@@ -9,30 +9,30 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    infomessage.cpp \
-    infowindow.cpp \
     main.cpp \
     mainmenu.cpp \
-    mainwindow.cpp \
-    mode.cpp \
+    infoWindow/infomessage.cpp \
+    infoWindow/infowindow.cpp \
+    configWindow/mainwindow.cpp \
+    configWindow/mode.cpp \
     ass.cpp \
     test.cpp
 
 HEADERS += \
-    infomessage.h \
-    infowindow.h \
     mainmenu.h \
-    mainwindow.h \
-    mode.h \
+    infoWindow/infomessage.h \
+    infoWindow/infowindow.h \
+    configWindow/mainwindow.h \
+    configWindow/mode.h \
     ass.h \
     test.h
 
 FORMS += \
-    infomessage.ui \
-    infowindow.ui \
     mainmenu.ui \
-    mainwindow.ui \
-    mode.ui
+    infoWindow/infomessage.ui \
+    infoWindow/infowindow.ui \
+    configWindow/mainwindow.ui \
+    configWindow/mode.ui
 
 #QMAKE_CXXFLAGS += "C:\Users\lario\Downloads\heob-3.1\include"  (my)
 

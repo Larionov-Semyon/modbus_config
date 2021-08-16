@@ -8,7 +8,6 @@
 #include <QTextCodec>
 #include <iostream>
 
-
 class Conf
 {
 public:
@@ -60,7 +59,7 @@ public:
     const int len = 6;
     QString readed;
 
-    QString name;
+    QString name = "No name";
     QString valible;
     QString block;
     QString outputs;

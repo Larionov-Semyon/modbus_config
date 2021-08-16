@@ -46,6 +46,7 @@ void MainWindow::closeEvent(QCloseEvent *event){
     qDebug() << "Exit confWindow";
 
     check_exit();
+    inputs_is_clear();
     emit firstWindow();
     QMainWindow::closeEvent(event);
 }

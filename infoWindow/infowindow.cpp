@@ -33,9 +33,41 @@ InfoWindow::~InfoWindow(){
     delete ui;
 }
 
+void InfoWindow::set_default_value(){
+    for (int i = 0; i < LEN_MESSAGE; i++) {
+//        message[i]->findChild<QLineEdit*>("lineEdit")->setText("");
+        message[i]->findChild<QTextEdit*>("textEdit")->setText(text[i]);
+    }
+}
+
+
+void InfoWindow::check_exit(){
+    if (!inputs_is_clear()){
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Выход",
+                                      "У вас есть непустые поля. Вы уверены, что хотите выйти?");
+        if (reply == QMessageBox::No){
+            on_pushButton_clicked();
+        }
+    }
+}
+
+bool InfoWindow::inputs_is_clear(){
+    bool ans = true;
+    for (int i = 0; i < LEN_MESSAGE; i++) {
+//        message[i]->findChild<QLineEdit*>("lineEdit")->setText("");
+        ans = ans & message[i]->findChild<QTextEdit*>("textEdit")->toPlainText().isEmpty();
+    }
+    return ans;
+}
+
 
 void InfoWindow::closeEvent(QCloseEvent* event){
     qDebug() << "Exit InfoWindow";
+
+    check_exit();
+    set_default_value();
+
     emit firstWindow();
     QMainWindow::closeEvent(event);
 }
@@ -101,7 +133,7 @@ void InfoWindow::write(QString filename){
 void InfoWindow::on_pushButton_clicked(){
     // кнопка *записать файл*
     if (PATH_DEVAULT_INFO == "") {
-        PATH_DEVAULT_INFO = QFileDialog::getSaveFileName(this, "Сохранить конфигурационный файл...",
+        PATH_DEVAULT_INFO = QFileDialog::getSaveFileName(this, "Сохранить информационные сообщения...",
                                                          QDir::homePath(), "Text files (*.txt)");
         if (PATH_DEVAULT_INFO == "") {
             QMessageBox::warning(this, "Ошибка", "Нет названия");

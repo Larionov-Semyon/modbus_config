@@ -14,8 +14,8 @@
 #include <QApplication>
 
 #include "mainmenu.h"
-#include "mainwindow.h"
-#include "infowindow.h"
+#include "configWindow/mainwindow.h"
+#include "infoWindow/infowindow.h"
 #include "ass.h"
 
 

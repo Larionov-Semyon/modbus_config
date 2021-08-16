@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "mainwindow.h"
-#include "infowindow.h"
+#include "configWindow/mainwindow.h"
+#include "infoWindow/infowindow.h"
 
 
 namespace Ui {

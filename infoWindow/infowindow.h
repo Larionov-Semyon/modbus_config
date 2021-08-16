@@ -77,6 +77,11 @@ private:
         "Не подключено рабочее заземление."
     };
 
+    void set_default_value();
+    void check_exit();
+
+    bool inputs_is_clear();
+
 private slots:
     void on_pushButton_clicked();
 
