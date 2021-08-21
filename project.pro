@@ -9,22 +9,22 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    file.cpp \
     main.cpp \
     mainmenu.cpp \
     infoWindow/infomessage.cpp \
     infoWindow/infowindow.cpp \
     configWindow/mainwindow.cpp \
     configWindow/mode.cpp \
-    ass.cpp \
     test.cpp
 
 HEADERS += \
+    file.h \
     mainmenu.h \
     infoWindow/infomessage.h \
     infoWindow/infowindow.h \
     configWindow/mainwindow.h \
     configWindow/mode.h \
-    ass.h \
     test.h
 
 FORMS += \

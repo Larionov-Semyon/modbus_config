@@ -1,4 +1,4 @@
-#include "ass.h"
+#include "file.h"
 
 // Запись-чтение из файлов
 

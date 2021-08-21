@@ -16,7 +16,7 @@
 #include <QTextEdit>
 
 #include "infomessage.h"
-#include "ass.h"
+#include "file.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InfoWindow; }

@@ -16,7 +16,7 @@
 #include "mainmenu.h"
 #include "configWindow/mainwindow.h"
 #include "infoWindow/infowindow.h"
-#include "ass.h"
+#include "file.h"
 
 
 class Test

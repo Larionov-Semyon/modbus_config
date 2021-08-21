@@ -1,5 +1,5 @@
-#ifndef ASS_H
-#define ASS_H
+#ifndef FILE_H
+#define FILE_H
 
 #pragma once
 
@@ -30,13 +30,13 @@ public:
     const int head_len = 12;
 
     QString readed = ""; // True - False
-    QStringList Mode_name; // название режимов
-    QStringList Mode; // конфигурация режимов <<str> -- <str>>
+    QStringList Mode_name; // РЅР°Р·РІР°РЅРёРµ СЂРµР¶РёРјРѕРІ
+    QStringList Mode; // РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ СЂРµР¶РёРјРѕРІ <<str> -- <str>>
 
-    explicit Conf(const QString&); // конструктор
+    explicit Conf(const QString&); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     ~Conf();
 
-    QString read(); // чтение файла в класс (return get_list()) - или return <name error>
+    QString read(); // С‡С‚РµРЅРёРµ С„Р°Р№Р»Р° РІ РєР»Р°СЃСЃ (return get_list()) - РёР»Рё return <name error>
 
 private:
     //head
@@ -47,8 +47,8 @@ private:
     QString version;
     QString language;
 
-     QStringList get_lines(); // чтение файла -- <список строк>
-     QString set_str(QString); // Замена пустой строки на None
+     QStringList get_lines(); // С‡С‚РµРЅРёРµ С„Р°Р№Р»Р° -- <СЃРїРёСЃРѕРє СЃС‚СЂРѕРє>
+     QString set_str(QString); // Р—Р°РјРµРЅР° РїСѓСЃС‚РѕР№ СЃС‚СЂРѕРєРё РЅР° None
 };
 
 // -----------------------------------
@@ -95,7 +95,7 @@ public:
                    const QString&,const QString&,const QString&);
 
 private:
-    QString set_str(QString); // Замена пустой строки на None
+    QString set_str(QString); // Р—Р°РјРµРЅР° РїСѓСЃС‚РѕР№ СЃС‚СЂРѕРєРё РЅР° None
 };
 
 // ---------------------------------------
