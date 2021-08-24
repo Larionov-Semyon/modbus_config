@@ -998,6 +998,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>Mark parity</string>
                </property>
               </item>
+              <item>
+               <property name="text">
+                <string>No parity</string>
+               </property>
+              </item>
              </widget>
             </item>
             <item row="1" column="1">

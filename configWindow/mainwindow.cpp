@@ -110,6 +110,7 @@ void MainWindow::set_value(){
     else if (md == "Odd parity") ui->tabWidget->widget(1)->findChild<QComboBox*>("comboParity")->setCurrentIndex(1);
     else if (md == "Space parity") ui->tabWidget->widget(1)->findChild<QComboBox*>("comboParity")->setCurrentIndex(2);
     else if (md == "Mark parity") ui->tabWidget->widget(1)->findChild<QComboBox*>("comboParity")->setCurrentIndex(3);
+    else if (md == "No parity") ui->tabWidget->widget(1)->findChild<QComboBox*>("comboParity")->setCurrentIndex(4);
     else qWarning("Ошибка: не найден режим MODBUS");
 
 
