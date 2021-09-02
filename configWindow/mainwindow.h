@@ -11,6 +11,7 @@
 #include <QRadioButton>
 #include <QDate>
 #include <QTextEdit>
+#include <QCloseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -41,39 +42,22 @@ private slots:
     void on_tabWidget_currentChanged(int index);
 
     void on_textEmergencyOt_textChanged();
-
     void on_textCur_textChanged();
-
     void on_textCurEN_textChanged();
-
     void on_textCurOt_textChanged();
-
     void on_textDoors_textChanged();
-
     void on_textDoorsEN_textChanged();
-
     void on_textDoorsOt_textChanged();
-
     void on_textEmergency_textChanged();
-
     void on_textEmergencyEN_textChanged();
-
     void on_textGnd_textChanged();
-
     void on_textGndEN_textChanged();
-
     void on_textGndOt_textChanged();
-
     void on_textVolt_textChanged();
-
     void on_textVoltEN_textChanged();
-
     void on_textVoltOt_textChanged();
-
     void on_textWorkGnd_textChanged();
-
     void on_textWorkGndEN_textChanged();
-
     void on_textWorkGndOt_textChanged();
 
 private:
@@ -135,7 +119,7 @@ private:
     bool delete_all_mode();
     void set_value();
     void make_new_tab(QString);
-    void check_exit();
+    bool check_exit();
     void delete_all_values();
     void set_default_values();
     void closeEvent(QCloseEvent *event);

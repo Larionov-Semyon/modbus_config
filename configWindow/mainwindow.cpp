@@ -47,26 +47,27 @@ MainWindow::~MainWindow(){
 }
 
 
-void MainWindow::check_exit(){
+bool MainWindow::check_exit(){
     if (!inputs_is_clear()){
         QMessageBox::StandardButton reply;
         reply = QMessageBox::question(this, "Выход",
-                                      "У вас есть непустые поля. Вы уверены, что хотите выйти?");
-        if (reply == QMessageBox::No){
+                                      "У вас есть непустые поля. Хотите сохранить изменения?");
+        if (reply == QMessageBox::Yes){
             on_actionSaveHow_triggered();
+            return false;
         }
     }
+    return true;
 }
 
 
-void MainWindow::closeEvent(QCloseEvent *event){
-    // нажатие на *крестик*
-    qDebug() << "Exit confWindow";
-
-    check_exit();
-    inputs_is_clear();
-//    emit firstWindow();
-    QMainWindow::closeEvent(event);
+void MainWindow::closeEvent (QCloseEvent *event)
+{
+    if (check_exit()){
+        event->accept();
+    }else{
+        event->ignore();
+    }
 }
 
 
@@ -362,8 +363,7 @@ void MainWindow::on_actionSave_triggered(){
 
 
 void MainWindow::on_actionExit_triggered(){
-    qDebug() << "Close the InfoWindow";
-//    emit firstWindow();
+    qDebug() << "Close the MainWindow";
     this->close();
 }
 
@@ -376,6 +376,7 @@ void MainWindow::on_pushButtonSave_clicked(){
         if (PATH_DEVAULT_SAVE == "") {
 //            QMessageBox::warning(this, "Ошибка", "Нет названия");
             ui->statusbar->showMessage(QString("Отмена"));
+//            qDebug() << "8888";
             return;
         }
     }
@@ -476,8 +477,6 @@ void MainWindow::set_default_values(){
     ui->comboParity->setCurrentIndex(default_comboParity);
 //
     ui->textVolt->setText(default_textVolt);
-//    ui->textVolt->;
-
     ui->textCur->setText(default_textCur);
     ui->textDoors->setText(default_textDoors);
     ui->textEmergency->setText(default_textEmergency);
