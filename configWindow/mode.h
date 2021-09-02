@@ -5,6 +5,7 @@
 
 #include <QWidget>
 #include <QFileDialog>
+#include <QTextEdit>
 
 namespace Ui {
 class Mode;
@@ -23,8 +24,18 @@ private slots:
 
     void on_buttonModeImage_clicked();
 
+    void on_textMode_textChanged();
+
+    void on_textModeEN_textChanged();
+
+    void on_textModeOT_textChanged();
+
+    void change_textEdit(QTextEdit*);
+
 private:
     Ui::Mode *ui;
+
+    const int MAX_NUM_TEXT = 200;
 };
 
 #endif // MODE_H

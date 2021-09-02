@@ -238,7 +238,7 @@ void Save_to_config::save_mode(const QString &name, const QString &valible, cons
 QString Save_to_config::set_str(QString str){
     if (str == QString()){
         //qWarning("The empty place, where it is not necessary");
-        return QString("None");
+        return QString("-");
     }
     return str;
 }

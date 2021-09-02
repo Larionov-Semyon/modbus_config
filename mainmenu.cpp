@@ -17,8 +17,8 @@ MainMenu::MainMenu(QWidget *parent) :
     this->setWindowFlags (this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
 
     // cоединение с окном создания конфиг файл
-    confWindow = new MainWindow();
-    connect(confWindow, &MainWindow::firstWindow, this, &MainMenu::show);
+//    confWindow = new MainWindow();
+//    connect(confWindow, &MainWindow::firstWindow, this, &MainMenu::show);
 
     // соединение с окном создания информ файл
     infoWindow = new InfoWindow();
