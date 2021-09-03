@@ -93,7 +93,7 @@ QString Conf::read(){
 
 
     QStringList _mode;
-//    if (((it++) + 1) == list.end()){
+//    if (((it++) + 1) == list.end())
 //        return QStringList("ERROR");
 //    }
 

@@ -51,71 +51,8 @@ void Test::test_conf_read(){ //тест чтения конф файла
     delete file;
 }
 
-void Test::memtest(){ // тест использования памяти
-    Memory("Start test");
-    MainMenu *w = new MainMenu;
-    w->show();
-    Memory("1");
-
-    InfoWindow *infoWindow = new InfoWindow;
-    infoWindow->show();
-    w->close();
-    Memory("2");
-
-    infoWindow->close();
-    Memory("3");
-
-    QApplication::quit();
-    delete infoWindow;
-    delete w;
-}
-
-void Test::test_info_read(){ // тест чтения информ сообщений
-    // right
-    InfoParser* file = new InfoParser(path + tests[0]);
-    QStringList list = file->read();
-
-    if (list == QStringList({"", "key", "value", "key", "value", "key", "value", "key", "value"})){
-        qDebug() << "YES. Test 1";
-    }else{
-        qDebug() << "No. Test 1";
-    }
-    delete file;
-
-    // no exist
-    file = new InfoParser(path + tests[1]);
-    list = file->read();
-
-    if (list == QStringList({"Файл закрыт для записи"})){
-        qDebug() << "YES. Test 2";
-    }else{
-        qDebug() << "No. Test 2";
-    }
-    delete file;
-
-    // bad file
-    file = new InfoParser(path + tests[1]);
-    list = file->read();
-
-    if (list == QStringList({"Файл закрыт для записи"})){
-        qDebug() << "YES. Test 2";
-    }else{
-        qDebug() << "No. Test 2";
-    }
-    delete file;
-}
 
 void Memory(const QString &place){
-    ///
-//    MEMORYSTATUSEX memInfo;
-//    memInfo.dwLength = sizeof(MEMORYSTATUSEX);
-//    GlobalMemoryStatusEx(&memInfo);
-//    DWORDLONG totalVirtualMem = memInfo.ullTotalPageFile;
-
-//    DWORDLONG virtualMemUsed = memInfo.ullTotalPageFile - memInfo.ullAvailPageFile;
-
-//    qDebug() << place << totalVirtualMem << Qt::endl << virtualMemUsed << " -- " << memInfo.ullTotalPageFile - memInfo.ullAvailPageFile;
-    ///
     MEMORYSTATUSEX memInfo;
     memInfo.dwLength = sizeof(MEMORYSTATUSEX);
     GlobalMemoryStatusEx(&memInfo);

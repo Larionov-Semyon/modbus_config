@@ -4,7 +4,6 @@
 #pragma once
 
 #include "configWindow/mainwindow.h"
-#include "infoWindow/infowindow.h"
 
 
 namespace Ui {

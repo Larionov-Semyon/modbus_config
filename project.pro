@@ -11,26 +11,17 @@ CONFIG += c++11
 SOURCES += \
     file.cpp \
     main.cpp \
-    mainmenu.cpp \
-    infoWindow/infomessage.cpp \
-    infoWindow/infowindow.cpp \
     configWindow/mainwindow.cpp \
     configWindow/mode.cpp \
     test.cpp
 
 HEADERS += \
     file.h \
-    mainmenu.h \
-    infoWindow/infomessage.h \
-    infoWindow/infowindow.h \
     configWindow/mainwindow.h \
     configWindow/mode.h \
     test.h
 
 FORMS += \
-    mainmenu.ui \
-    infoWindow/infomessage.ui \
-    infoWindow/infowindow.ui \
     configWindow/mainwindow.ui \
     configWindow/mode.ui
 

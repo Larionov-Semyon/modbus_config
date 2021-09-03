@@ -1,7 +1,4 @@
-#include "mainmenu.h"
-//#include "test.h"
 #include "configWindow/mainwindow.h"
-#include "infoWindow/infowindow.h"
 
 #include <QApplication>
 
@@ -18,7 +15,5 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-//    InfoWindow q;
-//    q.show();
     return a.exec();
 }

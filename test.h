@@ -13,9 +13,7 @@
 #include <QDesktopServices>
 #include <QApplication>
 
-#include "mainmenu.h"
 #include "configWindow/mainwindow.h"
-#include "infoWindow/infowindow.h"
 #include "file.h"
 
 
