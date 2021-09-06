@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>980</width>
-    <height>594</height>
+    <width>812</width>
+    <height>549</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,14 +18,15 @@
 	background-color:#ececec;
 }
 QTextEdit {
-	border-width: 1px;
+	border: 1px; border-radius: 5px;
 	border-style: solid;
-	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	border-color: rgba(0, 130, 255, 255);
+	padding: 2px 1px 1px 1px;
 }
 QPlainTextEdit {
-	border-width: 1px;
+	border-width: 1px; border-radius: 4px;
 	border-style: solid;
-	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	border-color: rgba(0, 130, 255, 255);
 }
 QToolButton {
 	border-style: solid;
@@ -372,11 +373,59 @@ QToolBox::tab:selected {
 	color: #FFFFFF;
 	background-color:#000000;
 }
+/*---------QScrollArea--------------*/
 QScrollArea {
-	color: #FFFFFF;
-	background-color:#000000;
+	color: none;
+	background-color:none;
+	border-radius: 4px;
+	border-color:  #d9d9d9;
+	
 }
-QSlider::groove:horizontal {
+/*----------QCoboBox---------------*/
+
+
+
+/* ComboBox menu */
+QComboBox {
+    selection-color: white;
+    selection-background-color: #5e90fa;
+	border: 1px; 
+	border-style: solid;
+	
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+border-color: rgba(0, 130, 255, 255);
+	padding: 2px 1px 1px 1px;
+}
+
+QComboBox QAbstractItemView {
+    color: #000000; /* same as regular QComboBox color */
+    background-color: transparent;
+    selection-color: white;
+    selection-background-color: #5e90fa;
+    border-width: 5px 0px 5px 0px;
+    border-style: solid;
+    border-color: transparent;
+    margin: 0px -1px 0px 0px; /* temporal: hack for Mac... try it on Windows and Linux */
+	border: 1px;     border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+	border-style: solid;
+	border-color: rgba(0, 130, 255, 255);
+	padding: 2px 1px 1px 1px;
+}
+	/*QComboBox::drop-down {
+  background-color: #d2d2d2;
+    subcontrol-origin: border; 
+    subcontrol-position: top right;
+    width: 20px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+border-radius: 2px;
+
+}*/
+
+/*--------------------------------------*/
+/*QSlider::groove:horizontal {
 	height: 5px;
 	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
 }
@@ -389,7 +438,7 @@ QSlider::handle:horizontal {
 	border-style: solid;
 	border-width: 1px;
 	border-color: rgb(207,207,207);
-	width: 12px;
+	min-width: 5px;
 	margin: -5px 0;
 	border-radius: 7px;
 }
@@ -398,7 +447,7 @@ QSlider::handle:vertical {
 	border-style: solid;
 	border-width: 1px;
 	border-color: rgb(207,207,207);
-	height: 12px;
+	min-height: 5px;
 	margin: 0 -5px;
 	border-radius: 7px;
 }
@@ -414,157 +463,57 @@ QSlider::sub-page:horizontal {
 QSlider::sub-page:vertical {
     background-color: qlineargradient(spread:pad, y1:0.5, x1:1, y2:0.5, x2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
 }
+*/
+/* --------- Scroll bar -----------*/
 QScrollBar:horizontal {
-	max-height: 20px;
-	border: 1px transparent grey;
-	margin: 0px 20px 0px 20px;
+	background: #263238;				/* Background where slider is not */
+	height: 10px;
+	margin: 0;
 }
+
 QScrollBar:vertical {
-	max-width: 20px;
-	border: 1px transparent grey;
-	margin: 20px 0px 20px 0px;
+	background: rgb(167, 167, 167);
+    border-top-right-radius: 4px;			/* Background where slider is not */
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	width: 12px;
+	height: 55px;
+	/*margin: 0;*/
 }
+
 QScrollBar::handle:horizontal {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-	border-radius: 7px;
-	min-width: 25px;
+    background: #37474F;					/* Slider color */
+    min-width: 16px;
+	border-radius: 5px;
+height: 5px;
 }
-QScrollBar::handle:horizontal:hover {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(147, 200, 200);
-	border-radius: 7px;
-	min-width: 25px;
-}
+
 QScrollBar::handle:vertical {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-	border-radius: 7px;
-	min-height: 25px;
+    background: rgba(34, 142, 255, 255);				/* Slider color */
+   /* min-height: 5px;*/
+	border-radius: 4px;
+	min-width: 10px;
+height: 20px;
 }
-QScrollBar::handle:vertical:hover {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(147, 200, 200);
-	border-radius: 7px;
-	min-height: 25px;
+
+QScrollBar::handle:vertical:pressed {
+    background-color: #305da1;				/* Slider color */
+    /*min-height: 5px;*/
+	border-radius: 3px;
+	min-width: 10px;
+height: 20px;
 }
-QScrollBar::add-line:horizontal {
-   border: 2px transparent grey;
-   border-top-right-radius: 7px;
-   border-bottom-right-radius: 7px;
-   background: rgba(34, 142, 255, 255);
-   width: 20px;
-   subcontrol-position: right;
-   subcontrol-origin: margin;
-}
-QScrollBar::add-line:horizontal:pressed {
-   border: 2px transparent grey;
-   border-top-right-radius: 7px;
-   border-bottom-right-radius: 7px;
-   background: rgb(181,181,181);
-   width: 20px;
-   subcontrol-position: right;
-   subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical {
-   border: 2px transparent grey;
-   border-bottom-left-radius: 7px;
-   border-bottom-right-radius: 7px;
-   background: rgba(34, 142, 255, 255);
-   height: 20px;
-   subcontrol-position: bottom;
-   subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical:pressed {
-   border: 2px transparent grey;
-   border-bottom-left-radius: 7px;
-   border-bottom-right-radius: 7px;
-   background: rgb(181,181,181);
-   height: 20px;
-   subcontrol-position: bottom;
-   subcontrol-origin: margin;
-}
-QScrollBar::sub-line:horizontal {
-   border: 2px transparent grey;
-   border-top-left-radius: 7px;
-   border-bottom-left-radius: 7px;
-   background: rgba(34, 142, 255, 255);
-   width: 20px;
-   subcontrol-position: left;
-   subcontrol-origin: margin;
-}
-QScrollBar::sub-line:horizontal:pressed {
-   border: 2px transparent grey;
-   border-top-left-radius: 7px;
-   border-bottom-left-radius: 7px;
-   background: rgb(181,181,181);
-   width: 20px;
-   subcontrol-position: left;
-   subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical {
-   border: 2px transparent grey;
-   border-top-left-radius: 7px;
-   border-top-right-radius: 7px;
-   background: rgba(34, 142, 255, 255);
-   height: 20px;
-   subcontrol-position: top;
-   subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical:pressed {
-   border: 2px transparent grey;
-   border-top-left-radius: 7px;
-   border-top-right-radius: 7px;
-   background: rgb(181,181,181);
-   height: 20px;
-   subcontrol-position: top;
-   subcontrol-origin: margin;
-}
-QScrollBar::left-arrow:horizontal {
-   border: 1px transparent grey;
-   border-top-left-radius: 3px;
-   border-bottom-left-radius: 3px;
-   width: 6px;
-   height: 6px;
-   background: white;
-}
-QScrollBar::right-arrow:horizontal {
-   border: 1px transparent grey;
-   border-top-right-radius: 3px;
-   border-bottom-right-radius: 3px;
-   width: 6px;
-   height: 6px;
-   background: white;
-}
-QScrollBar::up-arrow:vertical {
-   border: 1px transparent grey;
-   border-top-left-radius: 3px;
-   border-top-right-radius: 3px;
-   width: 6px;
-   height: 6px;
-   background: white;
-}
-QScrollBar::down-arrow:vertical {
-   border: 1px transparent grey;
-   border-bottom-left-radius: 3px;
-   border-bottom-right-radius: 3px;
-   width: 6px;
-   height: 6px;
-   background: white;
-}
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
-   background: none;
-}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal,
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-   background: none;
+	background: none;												/* Removes the dotted background */
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal,
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {	/* Hides the slider arrows */
+      border: none;
+      background: none;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -574,7 +523,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <item>
        <widget class="QTabWidget" name="tabWidget">
         <property name="currentIndex">
-         <number>3</number>
+         <number>2</number>
         </property>
         <property name="usesScrollButtons">
          <bool>true</bool>
@@ -687,6 +636,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </item>
             <item row="0" column="0" colspan="2">
              <widget class="QLabel" name="label_7">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -737,7 +692,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               </item>
               <item>
                <property name="text">
-                <string>Другой</string>
+                <string>Дополнительный</string>
                </property>
               </item>
              </widget>
@@ -911,26 +866,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
          </attribute>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
-           <layout class="QGridLayout" name="gridLayout_2" columnstretch="1,1" columnminimumwidth="1,1">
+           <layout class="QGridLayout" name="gridLayout_2" columnstretch="1,2,0">
             <property name="rightMargin">
              <number>40</number>
             </property>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_8">
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>COM port (впишите номер порта):</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="0">
+            <item row="13" column="0">
              <widget class="QLabel" name="label_12">
               <property name="font">
                <font>
@@ -945,25 +885,58 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               </property>
              </widget>
             </item>
-            <item row="4" column="1">
-             <widget class="QLineEdit" name="lineDATAbits"/>
+            <item row="4" column="2">
+             <widget class="QPushButton" name="updateCOM">
+              <property name="text">
+               <string>Обновить COM порты</string>
+              </property>
+             </widget>
             </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_9">
+            <item row="4" column="1">
+             <widget class="QComboBox" name="comboCOMport">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="editable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="13" column="1" colspan="2">
+             <widget class="QLineEdit" name="lineRESPONSEtime"/>
+            </item>
+            <item row="14" column="1" colspan="2">
+             <widget class="QLineEdit" name="lineADDRESS">
+              <property name="echoMode">
+               <enum>QLineEdit::Normal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="0">
+             <widget class="QLabel" name="label_14">
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
                </font>
               </property>
               <property name="text">
-               <string>Baud rate:</string>
+               <string>Stop bits: </string>
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
               </property>
              </widget>
             </item>
-            <item row="5" column="0">
+            <item row="12" column="0">
              <widget class="QLabel" name="label_11">
               <property name="font">
                <font>
@@ -978,36 +951,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               </property>
              </widget>
             </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="lineSTOPbits"/>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="lineBAUDrate"/>
-            </item>
-            <item row="7" column="1">
-             <widget class="QLineEdit" name="lineADDRESS">
-              <property name="echoMode">
-               <enum>QLineEdit::Normal</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_10">
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Data bits:</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
+            <item row="12" column="1" colspan="2">
              <widget class="QComboBox" name="comboParity">
+              <property name="currentText">
+               <string>Even parity</string>
+              </property>
               <item>
                <property name="text">
                 <string>Even parity</string>
@@ -1035,22 +983,37 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               </item>
              </widget>
             </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_14">
+            <item row="11" column="0">
+             <widget class="QLabel" name="label_10">
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
                </font>
               </property>
               <property name="text">
-               <string>Stop bits: l</string>
+               <string>Data bits:</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
               </property>
              </widget>
             </item>
-            <item row="7" column="0">
+            <item row="9" column="0">
+             <widget class="QLabel" name="label_9">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Baud rate:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="14" column="0">
              <widget class="QLabel" name="label_13">
               <property name="font">
                <font>
@@ -1065,34 +1028,26 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               </property>
              </widget>
             </item>
-            <item row="6" column="1">
-             <widget class="QLineEdit" name="lineRESPONSEtime"/>
-            </item>
-            <item row="0" column="1">
-             <widget class="QComboBox" name="comboCOMport">
-              <property name="editable">
-               <bool>true</bool>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_8">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
               </property>
-              <item>
-               <property name="text">
-                <string>1</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>2</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>3</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>4</string>
-               </property>
-              </item>
+              <property name="text">
+               <string>COM port:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="1" colspan="2">
+             <widget class="QComboBox" name="lineDATAbits">
+              <property name="currentText">
+               <string>5</string>
+              </property>
               <item>
                <property name="text">
                 <string>5</string>
@@ -1113,64 +1068,65 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>8</string>
                </property>
               </item>
+             </widget>
+            </item>
+            <item row="10" column="1" colspan="2">
+             <widget class="QComboBox" name="lineSTOPbits">
               <item>
                <property name="text">
-                <string>9</string>
+                <string>1</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>10</string>
+                <string>2</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="9" column="1" colspan="2">
+             <widget class="QComboBox" name="lineBAUDrate">
+              <property name="currentText">
+               <string>1200</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>1200</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>11</string>
+                <string>2400</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>12</string>
+                <string>4800</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>13</string>
+                <string>9600</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>14</string>
+                <string>19200</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>15</string>
+                <string>38400</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>16</string>
+                <string>57600</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>17</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>18</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>19</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>20</string>
+                <string>115200</string>
                </property>
               </item>
              </widget>
@@ -1181,11 +1137,19 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         </widget>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
-          <string>Подсказки</string>
+          <string>Блокировки</string>
          </attribute>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
            <widget class="QScrollArea" name="scrollArea">
+            <property name="styleSheet">
+             <string notr="true">QScrollArea{
+background-color:rgb(240, 240, 240);
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
             <property name="widgetResizable">
              <bool>true</bool>
             </property>
@@ -1194,15 +1158,103 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>911</width>
-               <height>1633</height>
+               <width>758</width>
+               <height>2885</height>
               </rect>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
                <layout class="QGridLayout" name="gridLayout_3">
-                <item row="1" column="1">
-                 <widget class="QLabel" name="label_31">
+                <item row="28" column="1">
+                 <widget class="QLabel" name="label_55">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="30" column="2">
+                 <widget class="QTextEdit" name="textConnectOT"/>
+                </item>
+                <item row="28" column="2">
+                 <widget class="QTextEdit" name="textConnect"/>
+                </item>
+                <item row="29" column="1">
+                 <widget class="QLabel" name="label_56">
+                  <property name="text">
+                   <string>Английский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="37" column="0">
+                 <widget class="QLabel" name="label_62">
+                  <property name="text">
+                   <string>Текст состояния при блокировке INVALID_INPUT_DATA</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QLabel" name="label_33">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="14" column="1">
+                 <widget class="QLabel" name="label_42">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="37" column="2">
+                 <widget class="QTextEdit" name="textInput"/>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QTextEdit" name="textVoltEN">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="13" column="1">
+                 <widget class="QLabel" name="label_41">
+                  <property name="text">
+                   <string>Английский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="24" column="2">
+                 <widget class="QTextEdit" name="textNoError"/>
+                </item>
+                <item row="28" column="0">
+                 <widget class="QLabel" name="label_54">
+                  <property name="text">
+                   <string>Текст состояния при блокировке COM_CONNECTON_ERROR</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="12" column="1">
+                 <widget class="QLabel" name="label_40">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="38" column="2">
+                 <widget class="QTextEdit" name="textInputEN"/>
+                </item>
+                <item row="41" column="2">
+                 <widget class="QTextEdit" name="textData"/>
+                </item>
+                <item row="33" column="0">
+                 <widget class="QLabel" name="label_58">
+                  <property name="text">
+                   <string>Текст состояния при блокировке INVALID_MODBUS_ADRESS</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="17" column="1">
+                 <widget class="QLabel" name="label_44">
                   <property name="text">
                    <string>Английский</string>
                   </property>
@@ -1216,76 +1268,36 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                   <property name="sizeAdjustPolicy">
                    <enum>QAbstractScrollArea::AdjustIgnored</enum>
                   </property>
+                  <property name="undoRedoEnabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="lineWrapMode">
+                   <enum>QTextEdit::WidgetWidth</enum>
+                  </property>
                   <property name="overwriteMode">
                    <bool>false</bool>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="2">
-                 <widget class="QTextEdit" name="textVoltEN">
+                <item row="25" column="2">
+                 <widget class="QTextEdit" name="textNoErrorEN"/>
+                </item>
+                <item row="9" column="2">
+                 <widget class="QTextEdit" name="textDoorsEN">
                   <property name="verticalScrollBarPolicy">
                    <enum>Qt::ScrollBarAlwaysOff</enum>
                   </property>
                  </widget>
                 </item>
-                <item row="18" column="1">
-                 <widget class="QLabel" name="label_45">
+                <item row="1" column="1">
+                 <widget class="QLabel" name="label_31">
                   <property name="text">
-                   <string>Дополнительный</string>
+                   <string>Английский</string>
                   </property>
                  </widget>
                 </item>
                 <item row="6" column="2">
                  <widget class="QTextEdit" name="textCurOt">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="14" column="2">
-                 <widget class="QTextEdit" name="textEmergencyOt">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="0">
-                 <widget class="QLabel" name="label_15">
-                  <property name="text">
-                   <string>Текст состояния при блокировке DOORS</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="12" column="0">
-                 <widget class="QLabel" name="label_16">
-                  <property name="text">
-                   <string>Текст состояния при блокировке EMERGENCY_BUTTON</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="2">
-                 <widget class="QTextEdit" name="textCur">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="2">
-                 <widget class="QTextEdit" name="textCurEN">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QLabel" name="label_32">
-                  <property name="text">
-                   <string>Русский</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="12" column="2">
-                 <widget class="QTextEdit" name="textEmergency">
                   <property name="verticalScrollBarPolicy">
                    <enum>Qt::ScrollBarAlwaysOff</enum>
                   </property>
@@ -1298,171 +1310,34 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                   </property>
                  </widget>
                 </item>
-                <item row="8" column="1">
-                 <widget class="QLabel" name="label_37">
-                  <property name="text">
-                   <string>Русский</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="2">
-                 <widget class="QTextEdit" name="textVoltOt">
+                <item row="4" column="2">
+                 <widget class="QTextEdit" name="textCur">
                   <property name="verticalScrollBarPolicy">
                    <enum>Qt::ScrollBarAlwaysOff</enum>
                   </property>
                  </widget>
                 </item>
-                <item row="20" column="2">
-                 <widget class="QTextEdit" name="textWorkGnd">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="1">
-                 <widget class="QLabel" name="label_35">
-                  <property name="text">
-                   <string>Английский</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="17" column="1">
-                 <widget class="QLabel" name="label_44">
-                  <property name="text">
-                   <string>Английский</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="13" column="1">
-                 <widget class="QLabel" name="label_41">
-                  <property name="text">
-                   <string>Английский</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="18" column="2">
-                 <widget class="QTextEdit" name="textGndOt">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="20" column="0">
-                 <widget class="QLabel" name="label_18">
-                  <property name="text">
-                   <string>Текст состояния при блокировке WORK_GND</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="12" column="1">
-                 <widget class="QLabel" name="label_40">
-                  <property name="text">
-                   <string>Русский</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="16" column="0">
-                 <widget class="QLabel" name="label_17">
-                  <property name="text">
-                   <string>Текст состояния при блокировке GND</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="10" column="2">
-                 <widget class="QTextEdit" name="textDoorsOt">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="16" column="2">
-                 <widget class="QTextEdit" name="textGnd">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="0" colspan="2">
-                 <widget class="Line" name="line_3">
+                <item row="31" column="0" colspan="3">
+                 <widget class="Line" name="line_10">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
-                <item row="15" column="0" colspan="2">
-                 <widget class="Line" name="line_5">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                 </widget>
+                <item row="34" column="2">
+                 <widget class="QTextEdit" name="textAddressEN"/>
                 </item>
-                <item row="9" column="2">
-                 <widget class="QTextEdit" name="textDoorsEN">
+                <item row="5" column="2">
+                 <widget class="QTextEdit" name="textCurEN">
                   <property name="verticalScrollBarPolicy">
                    <enum>Qt::ScrollBarAlwaysOff</enum>
                   </property>
                  </widget>
                 </item>
-                <item row="17" column="2">
-                 <widget class="QTextEdit" name="textGndEN">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="1">
-                 <widget class="QLabel" name="label_34">
-                  <property name="text">
-                   <string>Русский</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="2">
-                 <widget class="QTextEdit" name="textDoors">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="21" column="2">
-                 <widget class="QTextEdit" name="textWorkGndEN">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="13" column="2">
-                 <widget class="QTextEdit" name="textEmergencyEN">
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="16" column="1">
-                 <widget class="QLabel" name="label_43">
-                  <property name="text">
-                   <string>Русский</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QLabel" name="label_33">
+                <item row="35" column="1">
+                 <widget class="QLabel" name="label_61">
                   <property name="text">
                    <string>Дополнительный</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="1">
-                 <widget class="QLabel" name="label_36">
-                  <property name="text">
-                   <string>Дополнительный</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>Текст состояния при блокировке VOLTAGE</string>
                   </property>
                  </widget>
                 </item>
@@ -1473,6 +1348,95 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                   </property>
                  </widget>
                 </item>
+                <item row="33" column="1">
+                 <widget class="QLabel" name="label_59">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>Текст состояния при блокировке VOLTAGE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="18" column="1">
+                 <widget class="QLabel" name="label_45">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="43" column="1">
+                 <widget class="QLabel" name="label_69">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="30" column="1">
+                 <widget class="QLabel" name="label_57">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="26" column="2">
+                 <widget class="QTextEdit" name="textNoErrorOT"/>
+                </item>
+                <item row="12" column="0">
+                 <widget class="QLabel" name="label_16">
+                  <property name="text">
+                   <string>Текст состояния при блокировке EMERGENCY_BUTTON</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="20" column="0">
+                 <widget class="QLabel" name="label_18">
+                  <property name="text">
+                   <string>Текст состояния при блокировке WORK_GND</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="47" column="2">
+                 <widget class="QTextEdit" name="textUnknownOT"/>
+                </item>
+                <item row="11" column="0" colspan="2">
+                 <widget class="Line" name="line_4">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="22" column="1">
+                 <widget class="QLabel" name="label_48">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="34" column="1">
+                 <widget class="QLabel" name="label_60">
+                  <property name="text">
+                   <string>Английский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="20" column="2">
+                 <widget class="QTextEdit" name="textWorkGnd">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="39" column="2">
+                 <widget class="QTextEdit" name="textInputOT"/>
+                </item>
+                <item row="43" column="2">
+                 <widget class="QTextEdit" name="textDataOT"/>
+                </item>
                 <item row="10" column="1">
                  <widget class="QLabel" name="label_39">
                   <property name="text">
@@ -1480,31 +1444,72 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                   </property>
                  </widget>
                 </item>
-                <item row="14" column="1">
-                 <widget class="QLabel" name="label_42">
-                  <property name="text">
-                   <string>Дополнительный</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="22" column="2">
-                 <widget class="QTextEdit" name="textWorkGndOt">
+                <item row="10" column="2">
+                 <widget class="QTextEdit" name="textDoorsOt">
                   <property name="verticalScrollBarPolicy">
                    <enum>Qt::ScrollBarAlwaysOff</enum>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="0" colspan="2">
-                 <widget class="Line" name="line_2">
+                <item row="45" column="1">
+                 <widget class="QLabel" name="label_71">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="39" column="1">
+                 <widget class="QLabel" name="label_65">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="27" column="0" colspan="3">
+                 <widget class="Line" name="line_9">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
-                <item row="11" column="0" colspan="2">
-                 <widget class="Line" name="line_4">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                <item row="16" column="0">
+                 <widget class="QLabel" name="label_17">
+                  <property name="text">
+                   <string>Текст состояния при блокировке GND</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="14" column="2">
+                 <widget class="QTextEdit" name="textEmergencyOt">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="42" column="1">
+                 <widget class="QLabel" name="label_68">
+                  <property name="text">
+                   <string>Английский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="29" column="2">
+                 <widget class="QTextEdit" name="textConnectEN"/>
+                </item>
+                <item row="46" column="2">
+                 <widget class="QTextEdit" name="textUnknownEN"/>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="label_32">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="18" column="2">
+                 <widget class="QTextEdit" name="textGndOt">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
                   </property>
                  </widget>
                 </item>
@@ -1522,6 +1527,65 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                   </property>
                  </widget>
                 </item>
+                <item row="42" column="2">
+                 <widget class="QTextEdit" name="textDataEN"/>
+                </item>
+                <item row="22" column="2">
+                 <widget class="QTextEdit" name="textWorkGndOt">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="24" column="1">
+                 <widget class="QLabel" name="label_50">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="41" column="1">
+                 <widget class="QLabel" name="label_67">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="24" column="0">
+                 <widget class="QLabel" name="label_51">
+                  <property name="text">
+                   <string>Текст состояния при блокировке NO_ERROR</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="13" column="2">
+                 <widget class="QTextEdit" name="textEmergencyEN">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="2">
+                 <widget class="QTextEdit" name="textDoors">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QTextEdit" name="textVoltOt">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="12" column="2">
+                 <widget class="QTextEdit" name="textEmergency">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
                 <item row="21" column="1">
                  <widget class="QLabel" name="label_47">
                   <property name="text">
@@ -1529,10 +1593,180 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                   </property>
                  </widget>
                 </item>
-                <item row="22" column="1">
-                 <widget class="QLabel" name="label_48">
+                <item row="40" column="0" colspan="3">
+                 <widget class="Line" name="line_12">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="37" column="1">
+                 <widget class="QLabel" name="label_63">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="16" column="2">
+                 <widget class="QTextEdit" name="textGnd">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="25" column="1">
+                 <widget class="QLabel" name="label_52">
+                  <property name="text">
+                   <string>Английский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0" colspan="2">
+                 <widget class="Line" name="line_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="16" column="1">
+                 <widget class="QLabel" name="label_43">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="45" column="2">
+                 <widget class="QTextEdit" name="textUnknown"/>
+                </item>
+                <item row="3" column="0" colspan="2">
+                 <widget class="Line" name="line_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="45" column="0">
+                 <widget class="QLabel" name="label_70">
+                  <property name="text">
+                   <string>Текст состояния при блокировке UNKNOWN_ERROR</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="26" column="1">
+                 <widget class="QLabel" name="label_53">
                   <property name="text">
                    <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="35" column="2">
+                 <widget class="QTextEdit" name="textAddressOT"/>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QLabel" name="label_35">
+                  <property name="text">
+                   <string>Английский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="47" column="1">
+                 <widget class="QLabel" name="label_73">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="41" column="0">
+                 <widget class="QLabel" name="label_66">
+                  <property name="text">
+                   <string>Текст состояния при блокировке INVALID_MODBUS_DATA</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="33" column="2">
+                 <widget class="QTextEdit" name="textAddress"/>
+                </item>
+                <item row="15" column="0" colspan="2">
+                 <widget class="Line" name="line_5">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="1">
+                 <widget class="QLabel" name="label_37">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="46" column="1">
+                 <widget class="QLabel" name="label_72">
+                  <property name="text">
+                   <string>Английский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="36" column="0" colspan="3">
+                 <widget class="Line" name="line_11">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QLabel" name="label_36">
+                  <property name="text">
+                   <string>Дополнительный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="21" column="2">
+                 <widget class="QTextEdit" name="textWorkGndEN">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="23" column="0" colspan="3">
+                 <widget class="Line" name="line_8">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QLabel" name="label_34">
+                  <property name="text">
+                   <string>Русский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="0">
+                 <widget class="QLabel" name="label_15">
+                  <property name="text">
+                   <string>Текст состояния при блокировке DOORS</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="17" column="2">
+                 <widget class="QTextEdit" name="textGndEN">
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="38" column="1">
+                 <widget class="QLabel" name="label_64">
+                  <property name="text">
+                   <string>Английский</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="44" column="0" colspan="3">
+                 <widget class="Line" name="line_13">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -1551,95 +1785,171 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
            <layout class="QGridLayout" name="gridLayout_4">
-            <item row="4" column="2">
-             <widget class="QLineEdit" name="lineLangConnect"/>
-            </item>
-            <item row="6" column="0">
+            <item row="8" column="0">
              <widget class="QLabel" name="label_25">
               <property name="text">
                <string>Подсказки</string>
               </property>
              </widget>
             </item>
-            <item row="5" column="0">
-             <widget class="QLabel" name="label_24">
-              <property name="text">
-               <string>Блокировки</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="2">
-             <widget class="QLineEdit" name="lineLangBlock"/>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_19">
-              <property name="text">
-               <string>О лаборатории</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_21">
-              <property name="text">
-               <string>СТОП</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_22">
-              <property name="text">
-               <string>Выбор режима</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_23">
-              <property name="text">
-               <string>Схема подключения</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="0">
-             <widget class="QLabel" name="label_28">
-              <property name="text">
-               <string>Устройство готово к работе</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLineEdit" name="lineLangStart"/>
-            </item>
-            <item row="6" column="2">
-             <widget class="QLineEdit" name="lineLangTip"/>
-            </item>
-            <item row="8" column="0">
+            <item row="15" column="0">
              <widget class="QLabel" name="label_29">
               <property name="text">
                <string>Работа</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="2">
+            <item row="9" column="0">
+             <widget class="QLabel" name="label_74">
+              <property name="text">
+               <string>Название лаборатории</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
              <widget class="QLineEdit" name="lineLangStop"/>
             </item>
-            <item row="7" column="2">
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_22">
+              <property name="text">
+               <string>Выбор режима</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="3">
+             <widget class="Line" name="line_7">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="14" column="2">
              <widget class="QLineEdit" name="lineLangReady"/>
             </item>
-            <item row="0" column="2">
+            <item row="15" column="2">
+             <widget class="QLineEdit" name="lineLangWork"/>
+            </item>
+            <item row="9" column="2">
+             <widget class="QLineEdit" name="lineLangNameLaba"/>
+            </item>
+            <item row="13" column="2">
+             <widget class="QLineEdit" name="lineLangLang"/>
+            </item>
+            <item row="6" column="2">
+             <widget class="QLineEdit" name="lineLangConnect"/>
+            </item>
+            <item row="2" column="2">
              <widget class="QLineEdit" name="lineLangLaba"/>
             </item>
-            <item row="1" column="0">
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_24">
+              <property name="text">
+               <string>Блокировки</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="label_23">
+              <property name="text">
+               <string>Схема подключения</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
              <widget class="QLabel" name="label_20">
               <property name="text">
                <string>ПУСК</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="2">
-             <widget class="QLineEdit" name="lineLangMode"/>
+            <item row="7" column="2">
+             <widget class="QLineEdit" name="lineLangBlock"/>
+            </item>
+            <item row="14" column="0">
+             <widget class="QLabel" name="label_28">
+              <property name="text">
+               <string>Устройство готово к работе</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3">
+             <widget class="QLabel" name="label_49">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Перевод строк на дополнительный язык</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>О лаборатории</string>
+              </property>
+             </widget>
             </item>
             <item row="8" column="2">
-             <widget class="QLineEdit" name="lineLangWork"/>
+             <widget class="QLineEdit" name="lineLangTip"/>
+            </item>
+            <item row="11" column="2">
+             <widget class="QLineEdit" name="lineLangDate"/>
+            </item>
+            <item row="5" column="2">
+             <widget class="QLineEdit" name="lineLangMode"/>
+            </item>
+            <item row="10" column="2">
+             <widget class="QLineEdit" name="lineLangSerial"/>
+            </item>
+            <item row="3" column="2">
+             <widget class="QLineEdit" name="lineLangStart"/>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_21">
+              <property name="text">
+               <string>СТОП</string>
+              </property>
+             </widget>
+            </item>
+            <item row="12" column="2">
+             <widget class="QLineEdit" name="lineLangVersion"/>
+            </item>
+            <item row="10" column="0">
+             <widget class="QLabel" name="label_75">
+              <property name="text">
+               <string>Серийный номер</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="0">
+             <widget class="QLabel" name="label_76">
+              <property name="text">
+               <string>Дата изготовления</string>
+              </property>
+             </widget>
+            </item>
+            <item row="12" column="0">
+             <widget class="QLabel" name="label_77">
+              <property name="text">
+               <string>Версия ПО контроллера</string>
+              </property>
+             </widget>
+            </item>
+            <item row="13" column="0">
+             <widget class="QLabel" name="label_78">
+              <property name="text">
+               <string>Язык</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -1749,8 +2059,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>980</width>
-     <height>22</height>
+     <width>812</width>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>839</width>
-    <height>414</height>
+    <height>440</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,14 +24,15 @@
 	background-color:#ececec;
 }
 QTextEdit {
-	border-width: 1px;
+	border: 1px; border-radius: 5px;
 	border-style: solid;
-	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	border-color: rgba(0, 130, 255, 255);
+	padding: 2px 1px 1px 1px;
 }
 QPlainTextEdit {
-	border-width: 1px;
+	border-width: 1px; border-radius: 4px;
 	border-style: solid;
-	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	border-color: rgba(0, 130, 255, 255);
 }
 QToolButton {
 	border-style: solid;
@@ -378,11 +379,59 @@ QToolBox::tab:selected {
 	color: #FFFFFF;
 	background-color:#000000;
 }
+/*---------QScrollArea--------------*/
 QScrollArea {
-	color: #FFFFFF;
-	background-color:#000000;
+	color: none;
+	background-color:none;
+	border-radius: 4px;
+	border-color:  #d9d9d9;
+	
 }
-QSlider::groove:horizontal {
+/*----------QCoboBox---------------*/
+
+
+
+/* ComboBox menu */
+QComboBox {
+    selection-color: white;
+    selection-background-color: #5e90fa;
+	border: 1px; 
+	border-style: solid;
+	
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+border-color: rgba(0, 130, 255, 255);
+	padding: 2px 1px 1px 1px;
+}
+
+QComboBox QAbstractItemView {
+    color: #000000; /* same as regular QComboBox color */
+    background-color: transparent;
+    selection-color: white;
+    selection-background-color: #5e90fa;
+    border-width: 5px 0px 5px 0px;
+    border-style: solid;
+    border-color: transparent;
+    margin: 0px -1px 0px 0px; /* temporal: hack for Mac... try it on Windows and Linux */
+	border: 1px;     border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+	border-style: solid;
+	border-color: rgba(0, 130, 255, 255);
+	padding: 2px 1px 1px 1px;
+}
+	/*QComboBox::drop-down {
+  background-color: #d2d2d2;
+    subcontrol-origin: border; 
+    subcontrol-position: top right;
+    width: 20px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+border-radius: 2px;
+
+}*/
+
+/*--------------------------------------*/
+/*QSlider::groove:horizontal {
 	height: 5px;
 	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
 }
@@ -395,7 +444,7 @@ QSlider::handle:horizontal {
 	border-style: solid;
 	border-width: 1px;
 	border-color: rgb(207,207,207);
-	width: 12px;
+	min-width: 5px;
 	margin: -5px 0;
 	border-radius: 7px;
 }
@@ -404,7 +453,7 @@ QSlider::handle:vertical {
 	border-style: solid;
 	border-width: 1px;
 	border-color: rgb(207,207,207);
-	height: 12px;
+	min-height: 5px;
 	margin: 0 -5px;
 	border-radius: 7px;
 }
@@ -420,162 +469,62 @@ QSlider::sub-page:horizontal {
 QSlider::sub-page:vertical {
     background-color: qlineargradient(spread:pad, y1:0.5, x1:1, y2:0.5, x2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
 }
+*/
+/* --------- Scroll bar -----------*/
 QScrollBar:horizontal {
-	max-height: 20px;
-	border: 1px transparent grey;
-	margin: 0px 20px 0px 20px;
+	background: #263238;				/* Background where slider is not */
+	height: 10px;
+	margin: 0;
 }
+
 QScrollBar:vertical {
-	max-width: 20px;
-	border: 1px transparent grey;
-	margin: 20px 0px 20px 0px;
+	background: rgb(167, 167, 167);
+    border-top-right-radius: 4px;			/* Background where slider is not */
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	width: 12px;
+	height: 55px;
+	/*margin: 0;*/
 }
+
 QScrollBar::handle:horizontal {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-	border-radius: 7px;
-	min-width: 25px;
+    background: #37474F;					/* Slider color */
+    min-width: 16px;
+	border-radius: 5px;
+height: 5px;
 }
-QScrollBar::handle:horizontal:hover {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(147, 200, 200);
-	border-radius: 7px;
-	min-width: 25px;
-}
+
 QScrollBar::handle:vertical {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-	border-radius: 7px;
-	min-height: 25px;
+    background: rgba(34, 142, 255, 255);				/* Slider color */
+   /* min-height: 5px;*/
+	border-radius: 4px;
+	min-width: 10px;
+height: 20px;
 }
-QScrollBar::handle:vertical:hover {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(147, 200, 200);
-	border-radius: 7px;
-	min-height: 25px;
+
+QScrollBar::handle:vertical:pressed {
+    background-color: #305da1;				/* Slider color */
+    /*min-height: 5px;*/
+	border-radius: 3px;
+	min-width: 10px;
+height: 20px;
 }
-QScrollBar::add-line:horizontal {
-   border: 2px transparent grey;
-   border-top-right-radius: 7px;
-   border-bottom-right-radius: 7px;
-   background: rgba(34, 142, 255, 255);
-   width: 20px;
-   subcontrol-position: right;
-   subcontrol-origin: margin;
-}
-QScrollBar::add-line:horizontal:pressed {
-   border: 2px transparent grey;
-   border-top-right-radius: 7px;
-   border-bottom-right-radius: 7px;
-   background: rgb(181,181,181);
-   width: 20px;
-   subcontrol-position: right;
-   subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical {
-   border: 2px transparent grey;
-   border-bottom-left-radius: 7px;
-   border-bottom-right-radius: 7px;
-   background: rgba(34, 142, 255, 255);
-   height: 20px;
-   subcontrol-position: bottom;
-   subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical:pressed {
-   border: 2px transparent grey;
-   border-bottom-left-radius: 7px;
-   border-bottom-right-radius: 7px;
-   background: rgb(181,181,181);
-   height: 20px;
-   subcontrol-position: bottom;
-   subcontrol-origin: margin;
-}
-QScrollBar::sub-line:horizontal {
-   border: 2px transparent grey;
-   border-top-left-radius: 7px;
-   border-bottom-left-radius: 7px;
-   background: rgba(34, 142, 255, 255);
-   width: 20px;
-   subcontrol-position: left;
-   subcontrol-origin: margin;
-}
-QScrollBar::sub-line:horizontal:pressed {
-   border: 2px transparent grey;
-   border-top-left-radius: 7px;
-   border-bottom-left-radius: 7px;
-   background: rgb(181,181,181);
-   width: 20px;
-   subcontrol-position: left;
-   subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical {
-   border: 2px transparent grey;
-   border-top-left-radius: 7px;
-   border-top-right-radius: 7px;
-   background: rgba(34, 142, 255, 255);
-   height: 20px;
-   subcontrol-position: top;
-   subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical:pressed {
-   border: 2px transparent grey;
-   border-top-left-radius: 7px;
-   border-top-right-radius: 7px;
-   background: rgb(181,181,181);
-   height: 20px;
-   subcontrol-position: top;
-   subcontrol-origin: margin;
-}
-QScrollBar::left-arrow:horizontal {
-   border: 1px transparent grey;
-   border-top-left-radius: 3px;
-   border-bottom-left-radius: 3px;
-   width: 6px;
-   height: 6px;
-   background: white;
-}
-QScrollBar::right-arrow:horizontal {
-   border: 1px transparent grey;
-   border-top-right-radius: 3px;
-   border-bottom-right-radius: 3px;
-   width: 6px;
-   height: 6px;
-   background: white;
-}
-QScrollBar::up-arrow:vertical {
-   border: 1px transparent grey;
-   border-top-left-radius: 3px;
-   border-top-right-radius: 3px;
-   width: 6px;
-   height: 6px;
-   background: white;
-}
-QScrollBar::down-arrow:vertical {
-   border: 1px transparent grey;
-   border-bottom-left-radius: 3px;
-   border-bottom-right-radius: 3px;
-   width: 6px;
-   height: 6px;
-   background: white;
-}
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
-   background: none;
-}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal,
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-   background: none;
+	background: none;												/* Removes the dotted background */
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal,
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {	/* Hides the slider arrows */
+      border: none;
+      background: none;
 }</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_3">
    <item>
-    <layout class="QGridLayout" name="gridLayout" rowstretch="4,0,0,0,0,0,0,0,0,0,0" columnstretch="1,4,0" columnminimumwidth="0,0,0">
+    <layout class="QGridLayout" name="gridLayout" rowstretch="4,0,0,0,0,0,0,0,0,0,0,0,0,0,0" columnstretch="1,0,0">
      <property name="topMargin">
       <number>20</number>
      </property>
@@ -591,51 +540,17 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      <property name="verticalSpacing">
       <number>10</number>
      </property>
-     <item row="0" column="0" colspan="2">
-      <widget class="QLabel" name="label_5">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>15</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_11">
        <property name="text">
-        <string>Настройки режима</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="label_8">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Подсказка режима на русском</string>
+        <string>на английском</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="7" column="1">
+     <item row="10" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QLineEdit" name="lineModeFile">
@@ -649,37 +564,84 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </item>
       </layout>
      </item>
+     <item row="7" column="1" colspan="2">
+      <widget class="QLineEdit" name="lineModeOutput">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1" colspan="2">
+      <widget class="QTextEdit" name="textMode">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+     </item>
      <item row="4" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
+      <widget class="QLabel" name="label_12">
        <property name="text">
-        <string>Введите перечень выполняемых действий через пробел</string>
+        <string>на дополнительном</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="7" column="0">
-      <widget class="QLabel" name="label_2">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>Файл для запуска стороннего приложения</string>
+        <string>Название режима на русском</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="5" column="0" colspan="3">
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1" colspan="2">
+      <widget class="QLineEdit" name="lineModeBlock">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <spacer name="horizontalSpacer">
@@ -713,14 +675,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </item>
       </layout>
      </item>
-     <item row="7" column="2">
-      <widget class="QPushButton" name="buttonModeFile">
-       <property name="text">
-        <string>Выбрать</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
+     <item row="6" column="0">
       <widget class="QLabel" name="label_4">
        <property name="font">
         <font>
@@ -735,7 +690,60 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
+     <item row="4" column="1" colspan="2">
+      <widget class="QLineEdit" name="lineModeNameOt"/>
+     </item>
+     <item row="9" column="2">
+      <widget class="QPushButton" name="buttonModeImage">
+       <property name="text">
+        <string>Выбрать</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Файл для запуска стороннего приложения</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Подсказка режима на русском</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" colspan="2">
+      <widget class="QLineEdit" name="lineModeNameEn"/>
+     </item>
+     <item row="2" column="1" colspan="2">
+      <widget class="QLineEdit" name="lineModeName">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
       <widget class="QLabel" name="label_3">
        <property name="font">
         <font>
@@ -750,69 +758,50 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QLineEdit" name="lineModeImage">
+     <item row="1" column="0" colspan="3">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="label_5">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-      </widget>
-     </item>
-     <item row="6" column="2">
-      <widget class="QPushButton" name="buttonModeImage">
-       <property name="text">
-        <string>Выбрать</string>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>15</height>
+        </size>
        </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_7">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
-        <string>Изображение схемы подключения</string>
+        <string>Настройки режима</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Название режима</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <item row="11" column="0" colspan="3">
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
-     <item row="9" column="0">
-      <widget class="QLabel" name="label_9">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>на английском</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="0">
+     <item row="14" column="0">
       <widget class="QLabel" name="label_10">
        <property name="font">
         <font>
@@ -827,57 +816,37 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </property>
       </widget>
      </item>
-     <item row="8" column="1" colspan="2">
-      <widget class="QTextEdit" name="textMode">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
+       <property name="text">
+        <string>Введите перечень выполняемых действий через пробел</string>
        </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOff</enum>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="9" column="1" colspan="2">
-      <widget class="QTextEdit" name="textModeEN">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
+     <item row="13" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
+       <property name="text">
+        <string>на английском</string>
        </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOff</enum>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="10" column="1" colspan="2">
+     <item row="14" column="1" colspan="2">
       <widget class="QTextEdit" name="textModeOT">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -902,40 +871,60 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </property>
       </widget>
      </item>
-     <item row="2" column="1" colspan="2">
-      <widget class="QLineEdit" name="lineModeName">
+     <item row="10" column="2">
+      <widget class="QPushButton" name="buttonModeFile">
+       <property name="text">
+        <string>Выбрать</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Изображение схемы подключения</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1" colspan="2">
+      <widget class="QTextEdit" name="textModeEN">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="lineModeImage">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1" colspan="2">
-      <widget class="QLineEdit" name="lineModeOutput">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1" colspan="2">
-      <widget class="QLineEdit" name="lineModeBlock">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0" colspan="3">
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>

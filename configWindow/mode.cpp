@@ -2,12 +2,11 @@
 #include "ui_mode.h"
 #include <QFileInfo>
 
-#include <QDebug>
+//#include <QDebug>
 
-
-Mode::Mode(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Mode)
+Mode::Mode(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::Mode)
 {
     ui->setupUi(this);
 }
@@ -17,34 +16,34 @@ Mode::~Mode()
     delete ui;
 }
 
-void Mode::on_buttonModeFile_clicked(){
+void Mode::on_buttonModeFile_clicked()
+{
     QString file_name = QFileDialog::getOpenFileName(this, "Открыть файл...",
-                                                     QDir::homePath());
-    if (!file_name.isEmpty()){
-//        QStringList file = file_name.split("/", QString::SkipEmptyParts);
+        QDir::homePath());
+    if (!file_name.isEmpty()) {
+        //        QStringList file = file_name.split("/", QString::SkipEmptyParts);
         ui->lineModeFile->setText(file_name);
     }
 }
 
-
-void Mode::on_buttonModeImage_clicked(){
+void Mode::on_buttonModeImage_clicked()
+{
     // нет проверки что действительно загружено изображение !!! что вообще с ним делать???
     QString file_name = QFileDialog::getOpenFileName(this, "Открыть изображение...",
-                                                     QDir::homePath());
-    if (!file_name.isEmpty()){
+        QDir::homePath());
+    if (!file_name.isEmpty()) {
         QStringList file = file_name.split("/", QString::SkipEmptyParts);
         ui->lineModeImage->setText(file.last());
     }
 }
 
-
-void Mode::change_textEdit(QTextEdit *text){
+void Mode::change_textEdit(QTextEdit* text)
+{
     QString textContent = text->toPlainText();
 
     int length = textContent.count();
 
-    if (length > MAX_NUM_TEXT)
-    {
+    if (length > MAX_NUM_TEXT) {
         int position = text->textCursor().position();
         QTextCursor textCursor = text->textCursor();
         textContent.remove(position - (length - MAX_NUM_TEXT), length - MAX_NUM_TEXT);
@@ -59,15 +58,22 @@ void Mode::on_textMode_textChanged()
     change_textEdit(ui->textMode);
 }
 
-
 void Mode::on_textModeEN_textChanged()
 {
     change_textEdit(ui->textModeEN);
 }
-
 
 void Mode::on_textModeOT_textChanged()
 {
     change_textEdit(ui->textModeOT);
 }
 
+//void Mode::change_textModeName(const QString& arg1){
+
+//}
+
+void Mode::on_lineModeName_textChanged(const QString& arg1)
+{
+    //    qDebug() << "push" << arg1;
+    emit change_textModeName();
+}

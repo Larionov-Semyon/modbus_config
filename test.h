@@ -1,37 +1,36 @@
-#ifndef TEST_H
-#define TEST_H
+//#ifndef TEST_H
+//#define TEST_H
 
-#pragma once
+//#pragma once
 
-#include "windows.h"
-#include "psapi.h"
-#include "TCHAR.h"
+//#include "windows.h"
+//#include "psapi.h"
+//#include "TCHAR.h"
 
-#include <QString>
-#include <QStringList>
-#include <QDebug>
-#include <QDesktopServices>
-#include <QApplication>
+//#include <QString>
+//#include <QStringList>
+////#include <QDebug>
+//#include <QDesktopServices>
+//#include <QApplication>
 
-#include "configWindow/mainwindow.h"
-#include "file.h"
+//#include "configWindow/mainwindow.h"
+//#include "file.h"
 
+//class Test
+//{
+//public:
+//    Test();
 
-class Test
-{
-public:
-    Test();
+//    const QString path = "D:/Qt_project/project/test/";
+//    QStringList tests = {"info_right.txt", "no", "conf_fight_1.txt", "conf_right_2.txt"};
 
-    const QString path = "D:/Qt_project/project/test/";
-    QStringList tests = {"info_right.txt", "no", "conf_fight_1.txt", "conf_right_2.txt"};
+//    void memtest();
+//    void test_info_read();
+//    void test_conf_read();
+//    void test_worker();
+//    void any_file_conf();
+//};
 
-    void memtest();
-    void test_info_read();
-    void test_conf_read();
-    void test_worker();
-    void any_file_conf();
-};
+//void Memory(const QString&);
 
-void Memory(const QString&);
-
-#endif // TEST_H
+//#endif // TEST_H

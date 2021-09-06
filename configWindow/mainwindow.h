@@ -3,33 +3,39 @@
 
 #pragma once
 
-#include "file.h"
 #include "configWindow/static_text.cpp"
+#include "read_class.h"
 
-#include <QMainWindow>
+#include <QCloseEvent>
+#include <QComboBox>
+#include <QCompleter>
 #include <QFileDialog>
+#include <QMainWindow>
 #include <QMessageBox>
 #include <QRadioButton>
+#include <QSerialPortInfo>
 #include <QTextEdit>
-#include <QCloseEvent>
-#include <QCompleter>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
+
+    void set_list_com_QComboBox(QComboBox* com_box);
 
 private slots:
     void rename_tab(); //слот для изменения названия Tab
+    //    void about();
 
-//-------------Кнопки--------------
+    //-------------Кнопки--------------
     void on_pushModeAdd_clicked(); // кнопка добавить режим
     void on_pushModeDelete_clicked(); // удаление режима
     void on_actionOpen_triggered();
@@ -40,8 +46,8 @@ private slots:
     void on_actionSaveHow_triggered();
     void on_actionNew_triggered();
     void on_tabWidget_currentChanged(int index);
-
-//------------Текстовый ввод-------
+    void on_updateCOM_clicked();
+    //------------Текстовый ввод-------
     void on_textEmergencyOt_textChanged();
     void on_textCur_textChanged();
     void on_textCurEN_textChanged();
@@ -61,15 +67,20 @@ private slots:
     void on_textWorkGndEN_textChanged();
     void on_textWorkGndOt_textChanged();
 
-private:
-    Ui::MainWindow *ui;
+    void on_comboCOMport_currentTextChanged(const QString& arg1);
 
-    Conf *config;
-    Save_to_config *save_conf;
+private:
+    Ui::MainWindow* ui;
+
+    Sets* config;
+    Save_to_config1* save_conf;
+    Inf_Msg* inf_conf;
+    Butts* but_conf;
+    //    Mode_chan* mode;
 
     QString PATH_DEVAULT_SAVE = "";
 
-    const int MAX_NUM_TAB = 10;
+    const int MAX_NUM_TAB = 12;
     const int MIN_NUM_TAB = 4;
     const int MAX_NUM_TEXT = 200;
 
@@ -81,7 +92,7 @@ private:
     bool check_exit();
     void delete_all_values();
     void set_default_values();
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent* event);
     bool inputs_is_clear();
     void change_textEdit(QTextEdit*);
 };

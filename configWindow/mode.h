@@ -3,20 +3,22 @@
 
 #pragma once
 
-#include <QWidget>
 #include <QFileDialog>
 #include <QTextEdit>
+#include <QWidget>
 
 namespace Ui {
 class Mode;
 }
 
-class Mode : public QWidget
-{
+class Mode : public QWidget {
     Q_OBJECT
 
+signals:
+    void change_textModeName();
+
 public:
-    explicit Mode(QWidget *parent = nullptr);
+    explicit Mode(QWidget* parent = nullptr);
     ~Mode();
 
 private slots:
@@ -32,8 +34,10 @@ private slots:
 
     void change_textEdit(QTextEdit*);
 
+    void on_lineModeName_textChanged(const QString& arg1);
+
 private:
-    Ui::Mode *ui;
+    Ui::Mode* ui;
 
     const int MAX_NUM_TEXT = 200;
 };

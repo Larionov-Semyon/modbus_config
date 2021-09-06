@@ -1,5 +1,5 @@
-#include <QString>
 #include <QDate>
+#include <QString>
 
 const QString default_lineVer = "";
 const QString default_lineLaba = "";
@@ -9,27 +9,39 @@ const int default_comboBoxLanguag = 0;
 const QString default_lineOtherLang = "";
 const QString default_lineLangShort = "";
 
-const QString default_comboCOMport= "";
-const QString default_lineBAUDrate = "";
-const QString default_lineSTOPbits = "";
-const QString default_lineDATAbits = "";
-const QString default_lineRESPONSEtime = "";
+const QString default_comboCOMport = "";
+const int default_lineBAUDrate = 4; //19200
+const int default_lineSTOPbits = 0; //1 stop bit
+const int default_lineDATAbits = 3; //8 data bits
+const QString default_lineRESPONSEtime = "1000";
 const QString default_lineADDRESS = "";
-const int default_comboParity = 0;
+const int default_comboParity = 4; //No Parity
 
-const QString default_textVolt = "Амплитуда напряжения/тока превысила допустимые значения.";
-const QString default_textCur = "Амплитуда напряжения/тока превысила допустимые значения.";
-const QString default_textDoors = "Не закрыты изолирующие двери.";
-const QString default_textEmergency = "Нажата аварийная кнопка.";
-const QString default_textGnd = "Не подключено заземление";
-const QString default_textWorkGnd = "Не подключено рабочее заземление.";
+const QString default_textVolt = "";
+const QString default_textCur = "";
+const QString default_textDoors = "";
+const QString default_textEmergency = "";
+const QString default_textGnd = "";
+const QString default_textWorkGnd = "";
+const QString default_textNoError = "Корректная работа Modbus модуля программы.";
+const QString default_textConnect = "Ошибка подключения к COM порту.";
+const QString default_textAddress = "Нет ответа от устройства по текущему адресу.";
+const QString default_textData = "Некорректная работа Modbus модуля программы.";
+const QString default_textInput = "Некорректная передача параметров в Modbus.";
+const QString default_textUnknown = "Неизвестная ошибка Modbus.";
 
-const QString default_textVolt_EN = "Амплитуда напряжения/тока превысила допустимые значения.";
-const QString default_textCur_EN = "Амплитуда напряжения/тока превысила допустимые значения.";
-const QString default_textDoors_EN = "Не закрыты изолирующие двери.";
-const QString default_textEmergency_EN = "Нажата аварийная кнопка.";
-const QString default_textGnd_EN = "Не подключено заземление";
-const QString default_textWorkGnd_EN = "Не подключено рабочее заземление.";
+const QString default_textVolt_EN = "";
+const QString default_textCur_EN = "";
+const QString default_textDoors_EN = "";
+const QString default_textEmergency_EN = "";
+const QString default_textGnd_EN = "";
+const QString default_textWorkGnd_EN = "";
+const QString default_textNoError_EN = "Correct work of the Modbus module.";
+const QString default_textConnect_EN = "COM connection error.";
+const QString default_textAddress_EN = "No response from the device at the current address.";
+const QString default_textData_EN = "Incorrect operation of the Modbus module of the program.";
+const QString default_textInput_EN = "Incorrect transmission of parameters to Modbus module.";
+const QString default_textUnknown_EN = "Unknown Modbus error.";
 
 const QString default_text_other = "";
 
@@ -42,3 +54,8 @@ const QString default_lineLangBlock = "";
 const QString default_lineLangTip = "";
 const QString default_lineLangReady = "";
 const QString default_lineLangWork = "";
+const QString default_lineLangDate = "";
+const QString default_lineLangLang = "";
+const QString default_lineLangNameLaba = "";
+const QString default_lineLangSerial = "";
+const QString default_lineLangVersion = "";

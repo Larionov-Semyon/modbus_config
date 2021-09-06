@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,21 +11,28 @@ CONFIG += c++11
 SOURCES += \
     configWindow/static_text.cpp \
     configWindow/text_interface.cpp \
-    file.cpp \
     main.cpp \
     configWindow/mainwindow.cpp \
     configWindow/mode.cpp \
+    read_class.cpp \
     test.cpp
 
 HEADERS += \
-    file.h \
     configWindow/mainwindow.h \
     configWindow/mode.h \
+    read_class.h \
     test.h
 
 FORMS += \
     configWindow/mainwindow.ui \
     configWindow/mode.ui
+
+VERSION = 1.0.0.0
+QMAKE_TARGET_COMPANY = Group of companies Energoskan
+QMAKE_TARGET_PRODUCT = On-board computer programm configurator
+QMAKE_TARGET_DESCRIPTION = Configurator software
+QMAKE_TARGET_COPYRIGHT = Group of companies Energoskan
+RC_ICONS = "icon.ico"
 
 #QMAKE_CXXFLAGS += "C:\Users\lario\Downloads\heob-3.1\include"  (my)
 
