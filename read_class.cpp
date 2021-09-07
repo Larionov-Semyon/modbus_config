@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-#include <QDebug>
+//#include <QDebug>
 #include <QFile>
 #include <QTextCodec>
 #include <QTextStream>
@@ -721,12 +721,12 @@ void Save_to_config1::save_btts(QStringList* source)
         "scheme_of_connection", "blocks", "clues",
         "name", "serial_number", "date_of_production", "controller_version", "default_language", "device_is_ready", "work" };
 
-    qDebug() << text.length() << source->length();
+//    qDebug() << text.length() << source->length();
 
     int i = 0;
     QStringList::iterator it1, it2;
     for (it1 = source->begin(), it2 = source->end(); it1 != it2; it1++) {
-        qDebug() << *it1;
+//        qDebug() << *it1;
         out << QString(text[i++]) << Qt::endl;
         out << QString("Add") << Qt::endl;
         out << set_str(*it1) << Qt::endl
