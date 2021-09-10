@@ -43,6 +43,41 @@ void MainWindow::on_textDoorsOt_textChanged()
     change_textEdit(ui->textDoorsOt);
 }
 
+void MainWindow::on_textSerial_textChanged()
+{
+    change_textEdit(ui->textSerial);
+}
+
+
+void MainWindow::on_textSerialEN_textChanged()
+{
+    change_textEdit(ui->textSerialEN);
+}
+
+
+void MainWindow::on_textSerialOT_textChanged()
+{
+    change_textEdit(ui->textSerialOT);
+}
+
+
+void MainWindow::on_textController_textChanged()
+{
+    change_textEdit(ui->textController);
+}
+
+
+void MainWindow::on_textControllerEN_textChanged()
+{
+    change_textEdit(ui->textControllerEN);
+}
+
+
+void MainWindow::on_textControllerOT_textChanged()
+{
+    change_textEdit(ui->textControllerOT);
+}
+
 
 void MainWindow::on_textEmergency_textChanged()
 {

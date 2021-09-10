@@ -25,6 +25,9 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
+//signals:
+//    void change_lineResponce();
+
 public:
     explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
@@ -33,7 +36,6 @@ public:
 
 private slots:
     void rename_tab(); //слот для изменения названия Tab
-    //    void about();
 
     //-------------Кнопки--------------
     void on_pushModeAdd_clicked(); // кнопка добавить режим
@@ -69,6 +71,22 @@ private slots:
 
     void on_comboCOMport_currentTextChanged(const QString& arg1);
 
+    void on_textSerial_textChanged();
+
+    void on_textSerialEN_textChanged();
+
+    void on_textSerialOT_textChanged();
+
+    void on_textController_textChanged();
+
+    void on_textControllerEN_textChanged();
+
+    void on_textControllerOT_textChanged();
+
+    void on_lineRESPONSEtime_editingFinished();
+
+    void on_lineADDRESS_editingFinished();
+
 private:
     Ui::MainWindow* ui;
 
@@ -76,24 +94,25 @@ private:
     Save_to_config1* save_conf;
     Inf_Msg* inf_conf;
     Butts* but_conf;
-    //    Mode_chan* mode;
 
     QString PATH_DEVAULT_SAVE = "";
 
     const int MAX_NUM_TAB = 12;
     const int MIN_NUM_TAB = 4;
-    const int MAX_NUM_TEXT = 200;
+    const int MAX_NUM_TEXT = 425;
 
     void read_config(QString&);
     void set_value_mode(QStringList&);
     bool delete_all_mode();
     void set_value();
-    void make_new_tab(QString);
+    void make_new_tab(QString&);
     bool check_exit();
     void delete_all_values();
     void set_default_values();
     void closeEvent(QCloseEvent* event);
     bool inputs_is_clear();
     void change_textEdit(QTextEdit*);
+    void change_lineResponse();
+    void change_lineADDRESS();
 };
 #endif // MAINWINDOW_H

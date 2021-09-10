@@ -13,7 +13,7 @@ const QString default_comboCOMport = "";
 const int default_lineBAUDrate = 4; //19200
 const int default_lineSTOPbits = 0; //1 stop bit
 const int default_lineDATAbits = 3; //8 data bits
-const QString default_lineRESPONSEtime = "1000";
+const QString default_lineRESPONSEtime = "500";
 const QString default_lineADDRESS = "";
 const int default_comboParity = 4; //No Parity
 
@@ -25,10 +25,12 @@ const QString default_textGnd = "";
 const QString default_textWorkGnd = "";
 const QString default_textNoError = "Корректная работа Modbus модуля программы.";
 const QString default_textConnect = "Ошибка подключения к COM порту.";
-const QString default_textAddress = "Нет ответа от устройства по текущему адресу.";
+const QString default_textAddress = "COM порт подключен, но устройство не отвечает.";
 const QString default_textData = "Некорректная работа Modbus модуля программы.";
-const QString default_textInput = "Некорректная передача параметров в Modbus.";
+const QString default_textInput = "Некорректная передача параметров в Modbus модуль программы.";
 const QString default_textUnknown = "Неизвестная ошибка Modbus.";
+const QString default_textSerial = "Серийный номер лаборатории, указанный в программе, не совпадает с установленным на данном устройстве";
+const QString default_textController = "Версия ПО контроллера, указанная в программе, не совпадает с установленной на данном устройстве";
 
 const QString default_textVolt_EN = "";
 const QString default_textCur_EN = "";
@@ -38,10 +40,12 @@ const QString default_textGnd_EN = "";
 const QString default_textWorkGnd_EN = "";
 const QString default_textNoError_EN = "Correct work of the Modbus module.";
 const QString default_textConnect_EN = "COM connection error.";
-const QString default_textAddress_EN = "No response from the device at the current address.";
+const QString default_textAddress_EN = "The COM port is connected, but the device does not respond.";
 const QString default_textData_EN = "Incorrect operation of the Modbus module of the program.";
-const QString default_textInput_EN = "Incorrect transmission of parameters to Modbus module.";
+const QString default_textInput_EN = "Incorrect transmission of parameters to Modbus program module.";
 const QString default_textUnknown_EN = "Unknown Modbus error.";
+const QString default_textSerial_EN = "The serial number of the laboratory specified in the program does not match the one installed on this device";
+const QString default_textController_EN = "The controller software version specified in the program does not match the one installed on this device";
 
 const QString default_text_other = "";
 

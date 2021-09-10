@@ -34,12 +34,12 @@ private slots:
 
     void change_textEdit(QTextEdit*);
 
-    void on_lineModeName_textChanged(const QString& arg1);
+    void on_lineModeName_textChanged(const QString&);
 
 private:
     Ui::Mode* ui;
 
-    const int MAX_NUM_TEXT = 200;
+    const int MAX_NUM_TEXT = 425;
 };
 
 #endif // MODE_H

@@ -20,7 +20,6 @@ QString Sets::set_str(QString str)
 QStringList Sets::get_lines(QFile* file)
 {
 
-    //   QFile fil("D:\\config_file.txt");
     // Создаем входящий поток, из которого будут считываться данные, и связываем его с нашим файлом
     QTextStream in(file);
 
@@ -239,10 +238,6 @@ QString Butts::read(QString file_name)
 
     QStringList list = get_lines(&file);
 
-    //    qDebug() << "000000--" << list;
-
-    ////////////=================
-
     // Создаем входящий поток, из которого будут считываться данные, и связываем его с нашим файлом
     QTextStream in(&file);
 
@@ -333,9 +328,6 @@ QString Butts::read(QString file_name)
         }
         it++;
     }
-
-    //    qDebug() << "000000--" << about_lab;
-    //    qDebug("Конфиг файл закрыт");
 
     // Закрываем файл
     file.close();
@@ -500,6 +492,28 @@ QString Inf_Msg::read(QString file_name)
             it++;
             msg_unknown_add = *it;
         }
+        if (*it == "INVALID_SERIAL_NUMBER") {
+            it++;
+            it++;
+            msg_serial = *it;
+            it++;
+            it++;
+            msg_serial_en = *it;
+            it++;
+            it++;
+            msg_serial_add = *it;
+        }
+        if (*it == "INVALID_CONTROLLER_VERSION") {
+            it++;
+            it++;
+            msg_version = *it;
+            it++;
+            it++;
+            msg_version_en = *it;
+            it++;
+            it++;
+            msg_version_add = *it;
+        }
 
         it++;
     }
@@ -564,29 +578,6 @@ Mode_chan::Mode_chan(QString file_name, QString list)
                 clue_add = *it;
             }
 
-            //-----------------Английский----------------------
-            //        if (language == "Английский"){
-            //            if(*it == "name"){
-            //                it++; it++; it++; it++;
-            //                m_name = *it;
-            //            }
-            //            if(*it == "clue"){
-            //                it++; it++; it++; it++;
-            //                clue = *it;
-            //            }
-
-            //        }
-            //----------------Другой язык----------------------
-            //        if (language != "Английский" and language != "Русский"){
-            //            if(*it == "name"){
-            //                it++; it++; it++; it++; it++; it++;
-            //                m_name = *it;
-            //            }
-            //            if(*it == "clue"){
-            //                it++; it++; it++; it++; it++; it++;
-            //                clue = *it;
-            //            }
-            //        }
             //--------------------------------------------------------
             if (*it == "enable") {
                 it++;
@@ -644,9 +635,6 @@ void Save_to_config1::save_main_param(QString* laba,
 
     QTextStream out(&file);
     out.setCodec(QTextCodec::codecForName("UTF-8"));
-
-    //    out << QString("Данные настроек подключения к устройству управления") <<Qt::endl;
-    //    out << set_str(*setting) << Qt::endl << Qt::endl;
 
     out << QString("name") << Qt::endl;
     out << set_str(*laba) << Qt::endl
@@ -744,7 +732,7 @@ void Save_to_config1::save_inf_msg(QStringList* source)
     QStringList text = { "VOLTAGE", "CURRENT", "DOORS", "EMERGENCY_BUTTON",
         "GND", "WORK_GND", "NO_ERROR", "COM_CONNECTION_ERROR",
         "INVALID_MODBUS_ADDRESS", "INVALID_INPUT_DATA",
-        "INVALID_MODBUS_DATA", "UNKNOWN_ERROR" };
+        "INVALID_MODBUS_DATA", "UNKNOWN_ERROR", "INVALID_SERIAL_NUMBER", "INVALID_CONTROLLER_VERSION" };
 
     //    qDebug() << text.length() << source->length();
 

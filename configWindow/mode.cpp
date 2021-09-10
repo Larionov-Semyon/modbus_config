@@ -68,12 +68,7 @@ void Mode::on_textModeOT_textChanged()
     change_textEdit(ui->textModeOT);
 }
 
-//void Mode::change_textModeName(const QString& arg1){
-
-//}
-
 void Mode::on_lineModeName_textChanged(const QString& arg1)
 {
-    //    qDebug() << "push" << arg1;
     emit change_textModeName();
 }

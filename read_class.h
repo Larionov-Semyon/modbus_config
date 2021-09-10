@@ -21,8 +21,6 @@ public:
     QString language; // язык
     QString readed = "True"; // True - False
 
-    //explicit Sets(QString file); // конструктор
-
     QString read(QString); // чтение файла в класс (return get_list()) - или return <name error>
     QStringList get_lines(QFile*);
     //private:
@@ -46,23 +44,6 @@ public:
     QString abbrev;
     QString lang_name;
 };
-
-//class Workerr
-//{
-//public:
-//    //const int len = 6;
-//    QString readed;
-
-//    QString com_port;
-//    QString baud_rate;
-//    QString stop_bits;
-//    QString data_bits;
-//    QString parity;
-//    QString response_time;
-//    QString adress;
-
-//    explicit Workerr(QString);
-//};
 
 class Butts {
 public:
@@ -108,6 +89,8 @@ public:
     QString msg_invalid_input;
     QString msg_invalid_modbus;
     QString msg_unknown;
+    QString msg_serial;
+    QString msg_version;
 
     QString voltage_en;
     QString current_en;
@@ -121,6 +104,8 @@ public:
     QString msg_invalid_input_en;
     QString msg_invalid_modbus_en;
     QString msg_unknown_en;
+    QString msg_serial_en;
+    QString msg_version_en;
 
     QString voltage_add;
     QString current_add;
@@ -134,11 +119,11 @@ public:
     QString msg_invalid_input_add;
     QString msg_invalid_modbus_add;
     QString msg_unknown_add;
+    QString msg_serial_add;
+    QString msg_version_add;
 
     QString read(QString);
     QStringList get_lines(QFile*);
-
-    //    explicit Inf_Msg(QString);
 };
 
 class Mode_chan {

@@ -3,6 +3,7 @@
 #include "ui_mainwindow.h"
 
 #include <QDebug>
+//#include <QMediaPlayer>
 
 // Окно создания конфиг. файла
 
@@ -21,12 +22,12 @@ MainWindow::MainWindow(QWidget* parent)
     ui->tabWidget->setCurrentIndex(0);
 
     ui->lineRESPONSEtime->setValidator(new QIntValidator(0, INT_MAX, this));
-    ui->lineADDRESS->setValidator(new QIntValidator(0, 247, this));
+    ui->lineADDRESS->setValidator(new QIntValidator(0, INT_MAX, this));
     ui->pushModeDelete->setVisible(false);
 
-    set_default_values();
+//    connect(this, SIGNAL(on_lineRESPONSEtime_editingFinished()), this, SLOT(rename_tab()));
 
-    //    connect(ui->menu_2, SIGNAL(aboutToShow()), this, SLOT(about()));
+    set_default_values();
 }
 
 MainWindow::~MainWindow()
@@ -34,15 +35,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-//void MainWindow::about()
-//{
-//    QMessageBox::about(this, "Информация о программе", "<h1><p>ХУЙ</p></h1>");
-//}
-
 bool MainWindow::check_exit()
 {
     if (!inputs_is_clear()) {
-
         QMessageBox messageBox(QMessageBox::Question,
             tr("Выход"),
             tr("У вас есть непустые поля. Хотите сохранить изменения?"),
@@ -95,17 +90,17 @@ bool MainWindow::inputs_is_clear()
     bool other_lang = (ui->lineOtherLang->text() == default_lineOtherLang);
     bool other_short_lang = (ui->lineLangShort->text() == default_lineLangShort);
     sum = laba & serial & version & date & combo_1 & other_lang & other_short_lang;
-    //    qDebug() << sum;
+//        qDebug() << sum;
 
     bool comport = (ui->comboCOMport->currentText() == default_comboCOMport);
-    bool baud = (ui->lineBAUDrate->currentText() == default_lineBAUDrate);
-    bool stopbits = (ui->lineSTOPbits->currentText() == default_lineSTOPbits);
-    bool databits = (ui->lineDATAbits->currentText() == default_lineDATAbits);
+    bool baud = (ui->lineBAUDrate->currentIndex() == default_lineBAUDrate);
+    bool stopbits = (ui->lineSTOPbits->currentIndex() == default_lineSTOPbits);
+    bool databits = (ui->lineDATAbits->currentIndex() == default_lineDATAbits);
     bool response = (ui->lineRESPONSEtime->text() == default_lineRESPONSEtime);
     bool address = (ui->lineADDRESS->text() == default_lineADDRESS);
     bool combo_2 = (ui->comboParity->currentIndex() == default_comboParity);
     sum = sum & comport & baud & stopbits & databits & response & address & combo_2;
-    //    qDebug() << sum;
+//        qDebug() << sum;
 
     bool power = (ui->textVolt->toPlainText() == default_textVolt);
     bool cur = (ui->textCur->toPlainText() == default_textCur);
@@ -121,10 +116,13 @@ bool MainWindow::inputs_is_clear()
     bool text_input = (ui->textInput->toPlainText() == default_textInput);
     bool text_unknown = (ui->textUnknown->toPlainText() == default_textUnknown);
 
+    bool text_serial = (ui->textSerial->toPlainText() == default_textSerial);
+    bool text_controller = (ui->textController->toPlainText() == default_textController);
+
     sum = sum & power & doors & emer & gnd & gnd_1 & cur
         & text_no_error & text_connect & text_address & text_data
-        & text_data & text_input & text_unknown;
-    //    qDebug() << sum;
+        & text_data & text_input & text_unknown & text_controller & text_serial;
+//        qDebug() << sum;
 
     bool en_power = (ui->textVoltEN->toPlainText() == default_textVolt_EN);
     bool en_cur = (ui->textCurEN->toPlainText() == default_textCur_EN);
@@ -139,10 +137,14 @@ bool MainWindow::inputs_is_clear()
     bool text_data_en = (ui->textDataEN->toPlainText() == default_textData_EN);
     bool text_input_en = (ui->textInputEN->toPlainText() == default_textInput_EN);
     bool text_unknown_en = (ui->textUnknownEN->toPlainText() == default_textUnknown_EN);
+
+    bool text_serial_en = (ui->textSerialEN->toPlainText() == default_textSerial_EN);
+    bool text_controller_en = (ui->textControllerEN->toPlainText() == default_textController_EN);
+
     sum = sum & en_power & en_doors & en_emer & en_gnd & en_gnd_1 & en_cur
         & text_no_error_en & text_connect_en & text_address_en & text_data_en
-        & text_data_en & text_input_en & text_unknown_en;
-    //    qDebug() << sum;
+        & text_data_en & text_input_en & text_unknown_en & text_controller_en & text_serial_en;
+//        qDebug() << sum;
 
     bool ot_power = (ui->textVoltOt->toPlainText() == default_text_other);
     bool ot_cur = (ui->textCurOt->toPlainText() == default_text_other);
@@ -157,10 +159,14 @@ bool MainWindow::inputs_is_clear()
     bool text_data_ot = (ui->textDataOT->toPlainText() == default_text_other);
     bool text_input_ot = (ui->textInputOT->toPlainText() == default_text_other);
     bool text_unknown_ot = (ui->textUnknownOT->toPlainText() == default_text_other);
+
+    bool text_serial_ot = (ui->textSerialOT->toPlainText() == default_text_other);
+    bool text_controller_ot = (ui->textControllerOT->toPlainText() == default_text_other);
+
     sum = sum & ot_power & ot_doors & ot_emer & ot_gnd & ot_gnd_1 & ot_cur
         & text_no_error_ot & text_connect_ot & text_address_ot & text_data_ot
-        & text_data_ot & text_input_ot & text_unknown_ot;
-    //    qDebug() << sum;
+        & text_data_ot & text_input_ot & text_unknown_ot & text_controller_ot & text_serial_ot;
+//        qDebug() << sum;
 
     bool l_laba = (ui->lineLangLaba->text() == default_lineLangLaba);
     bool l_start = (ui->lineLangStart->text() == default_lineLangStart);
@@ -179,7 +185,7 @@ bool MainWindow::inputs_is_clear()
     bool l_version = (ui->lineLangVersion->text() == default_lineLangVersion);
     sum = sum & l_laba & l_start & l_block & l_connect & l_mode & l_tip
         & l_stop & l_ready & l_work & l_date & l_lang & l_name & l_serial & l_version;
-    //    qDebug() << sum;
+//        qDebug() << sum;
 
     return (ui->tabWidget->count() <= MIN_NUM_TAB) & sum;
 }
@@ -276,6 +282,9 @@ void MainWindow::set_value()
     ui->textInput->setText(inf_conf->msg_invalid_input);
     ui->textUnknown->setText(inf_conf->msg_unknown);
 
+    ui->textSerial->setText(inf_conf->msg_serial);
+    ui->textController->setText(inf_conf->msg_version);
+
     //
     ui->textVoltEN->setText(inf_conf->voltage_en);
     ui->textCurEN->setText(inf_conf->current_en);
@@ -291,6 +300,9 @@ void MainWindow::set_value()
     ui->textInputEN->setText(inf_conf->msg_invalid_input_en);
     ui->textUnknownEN->setText(inf_conf->msg_unknown_en);
 
+    ui->textSerialEN->setText(inf_conf->msg_serial_en);
+    ui->textControllerEN->setText(inf_conf->msg_version_en);
+
     //
     ui->textVoltOt->setText(inf_conf->voltage_add);
     ui->textCurOt->setText(inf_conf->current_add);
@@ -305,6 +317,9 @@ void MainWindow::set_value()
     ui->textDataOT->setText(inf_conf->msg_invalid_modbus_add);
     ui->textInputOT->setText(inf_conf->msg_invalid_input_add);
     ui->textUnknownOT->setText(inf_conf->msg_unknown_add);
+
+    ui->textSerialOT->setText(inf_conf->msg_serial_add);
+    ui->textControllerOT->setText(inf_conf->msg_version_add);
 
     /// TRANSLATE
     ui->lineLangLaba->setText(but_conf->about_lab);
@@ -333,7 +348,7 @@ void MainWindow::set_value()
     }
 }
 
-///--------------change
+
 void MainWindow::set_value_mode(QStringList& _Mode)
 { // установка значений режимов
     for (int i = 0; i < _Mode.length(); i++) {
@@ -421,7 +436,7 @@ bool MainWindow::delete_all_mode()
     return true;
 }
 
-void MainWindow::make_new_tab(QString tab_name)
+void MainWindow::make_new_tab(QString &tab_name)
 {
     if (ui->tabWidget->count() < MAX_NUM_TAB) {
 
@@ -433,14 +448,13 @@ void MainWindow::make_new_tab(QString tab_name)
 
         //        connect(mode->findChild<QLineEdit*>("lineModeName"), SIGNAL(editingFinished()),
         //            this, SLOT(rename_tab(ui->tabWidget->currentIndex())));
-        connect(mode, SIGNAL(change_textModeName()),
-            this, SLOT(rename_tab()));
+        connect(mode, SIGNAL(change_textModeName()), this, SLOT(rename_tab()));
     }
 }
 
+
 void MainWindow::on_pushModeAdd_clicked()
 {
-    // кнопка добавить режим
     QString tab_name = QString("Режим %0").arg(ui->tabWidget->count() - MIN_NUM_TAB + 1);
     make_new_tab(tab_name);
 }
@@ -605,6 +619,14 @@ void MainWindow::on_pushButtonSave_clicked()
     source << ui->textUnknownEN->toPlainText();
     source << ui->textUnknownOT->toPlainText();
 
+    source << ui->textSerial->toPlainText();
+    source << ui->textSerialEN->toPlainText();
+    source << ui->textSerialOT->toPlainText();
+
+    source << ui->textController->toPlainText();
+    source << ui->textControllerEN->toPlainText();
+    source << ui->textControllerOT->toPlainText();
+
     qDebug() << source;
     save_conf->save_inf_msg(&source);
 
@@ -696,6 +718,8 @@ void MainWindow::set_default_values()
     ui->textInput->setText(default_textInput);
     ui->textData->setText(default_textData);
     ui->textUnknown->setText(default_textUnknown);
+    ui->textSerial->setText(default_textSerial);
+    ui->textController->setText(default_textController);
 
     ui->textVoltEN->setText(default_textVolt_EN);
     ui->textCurEN->setText(default_textCur_EN);
@@ -709,6 +733,8 @@ void MainWindow::set_default_values()
     ui->textInputEN->setText(default_textInput_EN);
     ui->textDataEN->setText(default_textData_EN);
     ui->textUnknownEN->setText(default_textUnknown_EN);
+    ui->textSerialEN->setText(default_textSerial_EN);
+    ui->textControllerEN->setText(default_textController_EN);
 
     ui->textVoltOt->setText(default_text_other);
     ui->textCurOt->setText(default_text_other);
@@ -722,6 +748,8 @@ void MainWindow::set_default_values()
     ui->textInputOT->setText(default_text_other);
     ui->textDataOT->setText(default_text_other);
     ui->textUnknownOT->setText(default_text_other);
+    ui->textSerialOT->setText(default_text_other);
+    ui->textControllerOT->setText(default_text_other);
 
     ///---------Translate-------
     ui->lineLangLaba->setText(default_lineLangLaba);
@@ -824,3 +852,32 @@ void MainWindow::on_comboCOMport_currentTextChanged(const QString& arg1)
     ui->comboCOMport->setCurrentText(com_port);
     //    qDebug() << 111 << ui->comboCOMport->currentText();
 }
+
+
+void MainWindow::on_lineRESPONSEtime_editingFinished()
+{
+    change_lineResponse();
+}
+
+void MainWindow::change_lineResponse(){
+    int num = ui->lineRESPONSEtime->text().toInt();
+    if (num < 50){
+        QMessageBox::warning(this, "Ошибка", "Значение не может быть меньше 50");
+        ui->lineRESPONSEtime->setText("50");
+    }
+}
+
+void MainWindow::on_lineADDRESS_editingFinished()
+{
+    change_lineADDRESS();
+}
+
+void MainWindow::change_lineADDRESS(){
+    int num = ui->lineADDRESS->text().toInt();
+    if (num > 247){
+        QMessageBox::warning(this, "Ошибка", "Значение не может быть больше 247");
+        ui->lineADDRESS->setText("247");
+    }
+}
+
+
