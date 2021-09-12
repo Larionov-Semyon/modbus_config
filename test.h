@@ -13,7 +13,6 @@
 #include <QTimer>
 
 #include "configWindow/mainwindow.h"
-#include "file.h"
 
 void memory(const QString&);
 void list_memory(const QString&);
@@ -41,10 +40,10 @@ public slots:
 private:
     QTimer *timer;
     void get_list_memory();
-    QList<int> list_totalVirtualMem_1 = {0};
-    QList<int> list_virtualMemUsed_1 = {1};
-    QList<int> list_totalPhysMem_1 = {2};
-    QList<int> list_physMemUsed_1 = {3};
+    QList<DWORDLONG> list_totalVirtualMem_1 = {0};
+    QList<DWORDLONG> list_virtualMemUsed_1 = {1};
+    QList<DWORDLONG> list_totalPhysMem_1 = {2};
+    QList<DWORDLONG> list_physMemUsed_1 = {3};
 
 protected:
     unsigned int i;
