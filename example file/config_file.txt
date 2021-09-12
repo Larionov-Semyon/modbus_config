@@ -1,0 +1,453 @@
+name
+ЭТЛ SCAN-3
+
+serial_number
+2103
+
+date_of_production
+01.01.2020
+
+controller_version
+0
+
+default_language
+Русский
+
+add_language
+Қазақ
+
+abbreviation
+KZ
+
+-----
+com_port
+3
+
+baud_rate
+19200
+
+stop_bits
+1
+
+data_bits
+8
+
+parity
+No parity
+
+response_time
+1500
+
+adress
+1
+
+-----
+about_labor
+Add
+Зертхана туралы
+
+start
+Add
+Бастау
+
+stop
+Add
+Тоқта
+
+choice_of_mode
+Add
+Режимдi таңдау
+
+scheme_of_connection
+Add
+Қосылу схемасы
+
+blocks
+Add
+Бұғаттау
+
+clues
+Add
+Кеңестер
+
+name
+Add
+Зертхана атауы
+
+serial_number
+Add
+Сериялық нөмірі
+
+date_of_production
+Add
+Дайындалған күні
+
+controller_version
+Add
+Контроллер нұсқасы
+
+default_language
+Add
+Тілі
+
+device_is_ready
+Add
+Құрылғы жұмысқа дайын
+
+work
+Add
+Жұмыс
+
+-----
+VOLTAGE
+RU
+Амплитуда напряжения превысила допустимые значения.
+EN
+Voltage amplitude exceeded acceptable values.
+Add
+Кернеу амплитудасы рұқсат етілген мәндерден асып кетті.
+
+CURRENT
+RU
+Амплитуда тока превысила допустимые значения.
+EN
+Current amplitude exceeded acceptable values.
+Add
+Ток амплитудасы рұқсат етілген мәндерден асып кетті.
+
+DOORS
+RU
+Не закрыты изолирующие двери.
+EN
+The insulating doors are not closed.
+Add
+Оқшаулағыш есіктер жабық емес.
+
+EMERGENCY_BUTTON
+RU
+Нажата аварийная кнопка.
+EN
+Emergency button is pressed.
+Add
+Басылған апаттық кнопкасы.
+
+GND
+RU
+Не подключено заземление.
+EN
+GND is not connected.
+Add
+Жерге қосу қосылмаған.
+
+WORK_GND
+RU
+Не подключено рабочее заземление.
+EN
+Working GND is not connected.
+Add
+Жұмыс жерге қосу қосылмаған.
+
+NO_ERROR
+RU
+Корректная работа ModBus модуля программы.
+EN
+Correct operation of the ModBus module.
+Add
+ModBus Модулінің дұрыс жұмысы.
+
+COM_CONNECTION_ERROR
+RU
+Ошибка подключения к COM порту.
+EN
+Error connecting to the COM port.
+Add
+COM портына қосылу қатесі.
+
+INVALID_MODBUS_ADDRESS
+RU
+Нет ответа от устройства по текущему адресу.
+EN
+No response from the device at the current address.
+Add
+Ағымдағы мекенжай бойынша құрылғыдан жауап жоқ.
+
+INVALID_INPUT_DATA
+RU
+Некорректная передача параметров в ModBus.
+EN
+Incorrect transmission of parameters to ModBus.
+Add
+Параметрлерді ModBus-қа қате жіберу.
+
+INVALID_MODBUS_DATA
+RU
+Некорректная работа ModBus модуля программы.
+EN
+Incorrect operation of the ModBus module of the program.
+Add
+ModBus бағдарлама модулінің дұрыс жұмыс істемеуі.
+
+UNKNOWN_ERROR
+RU
+Неизвестная ошибка ModBus.
+EN
+Unknown ModBus error.
+Add
+Белгісіз ModBus қатесі.
+
+-----
+name
+RU
+Высоковольтные испытания выпрямленным напряжением
+EN
+Mode 1
+Add
+Режимi 1
+
+enable
+1
+
+modbus_outputs
+16 17 18 19 20 21 24 25 31
+
+modbus_inputs
+2 3 4 5 6 7
+
+image_path
+1.jpg
+
+exe_path
+C:/HoMM 3/Heroes3.exe
+
+clue
+RU
+Соберите схему, необходимую для испытания. Установите ограждение лаборатории, объекта испытания, кабелей. Проверьте надёщность крепления проводов и кабелей. Проверьте готовность блокировок.
+EN
+Construct the scheme according to the instruction and check the absence of blocks for the given mode(1).
+Add
+Схеманы нұсқауларға сәйкес жинаңыз және осы режим үшін көрсетілген құлыптардың болмауын тексеріңіз(1).
+
+-----
+name
+RU
+STS
+EN
+Mode 2
+Add
+Режимi 2
+
+enable
+1
+
+modbus_outputs
+23 24 25
+
+modbus_inputs
+2 3 4 6
+
+image_path
+2.jpg
+
+exe_path
+-
+
+clue
+RU
+Соберите схему, необходимую для испытания. Установите ограждение лаборатории, объекта испытания, кабелей. Проверьте надёщность крепления проводов и кабелей. Проверьте готовность блокировок. Нажмите пу
+EN
+Construct the scheme according to the instruction and check the absence of blocks for the given mode(2).
+Add
+Схеманы нұсқауларға сәйкес жинаңыз және осы режим үшін көрсетілген құлыптардың болмауын тексеріңіз(2).
+
+-----
+name
+RU
+Режим 3
+EN
+Mode 3
+Add
+Режимi 3
+
+enable
+0
+
+modbus_outputs
+18
+
+modbus_inputs
+4
+
+image_path
+3.jpg
+
+exe_path
+-
+
+clue
+RU
+Соберите схему по инструкции и проверте отсутствие блокировок, указанных для данного режима(3).
+EN
+Construct the scheme according to the instruction and check the absence of blocks for the given mode(3).
+Add
+Схеманы нұсқауларға сәйкес жинаңыз және осы режим үшін көрсетілген құлыптардың болмауын тексеріңіз(3).
+
+-----
+name
+RU
+Режим 4
+EN
+Mode 4
+Add
+Режимi 4
+
+enable
+0
+
+modbus_outputs
+19
+
+modbus_inputs
+5
+
+image_path
+4.jpg
+
+exe_path
+-
+
+clue
+RU
+Соберите схему по инструкции и проверте отсутствие блокировок, указанных для данного режима(4).
+EN
+Construct the scheme according to the instruction and check the absence of blocks for the given mode(4).
+Add
+Схеманы нұсқауларға сәйкес жинаңыз және осы режим үшін көрсетілген құлыптардың болмауын тексеріңіз(4).
+
+-----
+name
+RU
+Высоковольтные испытания переменным напряжением
+EN
+Mode 5
+Add
+Режимi 5
+
+enable
+1
+
+modbus_outputs
+16 17 18 19 20 21 24 25
+
+modbus_inputs
+2 3 4 5 6 7
+
+image_path
+5.jpg
+
+exe_path
+-
+
+clue
+RU
+Соберите схему, необходимую для испытания. Установите ограждение лаборатории, объекта испытания, кабелей. Проверьте надёщность крепления проводов и кабелей, правильность прокладки высоковольтного провода и отсутствие любых предметов ближе 1м от него. Проверьте готовность блокировок.
+EN
+Construct the scheme according to the instruction and check the absence of blocks for the given mode.
+Add
+Схеманы нұсқауларға сәйкес жинаңыз және осы режим үшін көрсетілген құлыптардың болмауын тексеріңіз.
+
+-----
+name
+RU
+Режим 6
+EN
+Mode 6
+Add
+Режимi 6
+
+enable
+0
+
+modbus_outputs
+21
+
+modbus_inputs
+2 4 5
+
+image_path
+6.jpg
+
+exe_path
+-
+
+clue
+RU
+Соберите схему по инструкции и проверте отсутствие блокировок, указанных для данного режима.
+EN
+Construct the scheme according to the instruction and check the absence of blocks for the given mode.
+Add
+Схеманы нұсқауларға сәйкес жинаңыз және осы режим үшін көрсетілген құлыптардың болмауын тексеріңіз.
+
+-----
+name
+RU
+Режим 7
+EN
+Mode 7
+Add
+Режимi 7
+
+enable
+0
+
+modbus_outputs
+22
+
+modbus_inputs
+2 4 5
+
+image_path
+7.jpg
+
+exe_path
+-
+
+clue
+RU
+Соберите схему по инструкции и проверте отсутствие блокировок, указанных для данного режима.
+EN
+Construct the scheme according to the instruction and check the absence of blocks for the given mode.
+Add
+Схеманы нұсқауларға сәйкес жинаңыз және осы режим үшін көрсетілген құлыптардың болмауын тексеріңіз.
+
+-----
+name
+RU
+Режим 8
+EN
+Mode 8
+Add
+Режимi 8
+
+enable
+0
+
+modbus_outputs
+23
+
+modbus_inputs
+2 4 5
+
+image_path
+8.jpg
+
+exe_path
+-
+
+clue
+RU
+Соберите схему по инструкции и проверте отсутствие блокировок, указанных для данного режима.
+EN
+Construct the scheme according to the instruction and check the absence of blocks for the given mode.
+Add
+Схеманы нұсқауларға сәйкес жинаңыз және осы режим үшін көрсетілген құлыптардың болмауын тексеріңіз.
+

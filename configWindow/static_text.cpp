@@ -1,6 +1,8 @@
 #include <QDate>
 #include <QString>
 
+// Значения по умолчанию
+
 const QString default_lineVer = "";
 const QString default_lineLaba = "";
 const QString default_lineSerial = "";

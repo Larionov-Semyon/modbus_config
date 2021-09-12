@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+// Привязка текствого ввода к проверке на ограничение символов в вводе
 
 void MainWindow::on_textEmergencyOt_textChanged()
 {

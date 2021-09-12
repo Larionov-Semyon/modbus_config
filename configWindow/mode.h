@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QTextEdit>
 #include <QWidget>
+#include <QFileInfo>
 
 namespace Ui {
 class Mode;
@@ -23,17 +24,11 @@ public:
 
 private slots:
     void on_buttonModeFile_clicked();
-
     void on_buttonModeImage_clicked();
-
     void on_textMode_textChanged();
-
     void on_textModeEN_textChanged();
-
     void on_textModeOT_textChanged();
-
     void change_textEdit(QTextEdit*);
-
     void on_lineModeName_textChanged(const QString&);
 
 private:

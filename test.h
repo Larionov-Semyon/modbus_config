@@ -1,36 +1,54 @@
-//#ifndef TEST_H
-//#define TEST_H
+#ifndef TEST_H
+#define TEST_H
+#pragma once
 
-//#pragma once
+#include "windows.h"
+#include "psapi.h"
+#include "TCHAR.h"
 
-//#include "windows.h"
-//#include "psapi.h"
-//#include "TCHAR.h"
+#include <QString>
+#include <QStringList>
+#include <QDesktopServices>
+#include <QApplication>
+#include <QTimer>
 
-//#include <QString>
-//#include <QStringList>
-////#include <QDebug>
-//#include <QDesktopServices>
-//#include <QApplication>
+#include "configWindow/mainwindow.h"
+#include "file.h"
 
-//#include "configWindow/mainwindow.h"
-//#include "file.h"
+void memory(const QString&);
+void list_memory(const QString&);
+void get_list_memory();
 
-//class Test
-//{
-//public:
-//    Test();
 
-//    const QString path = "D:/Qt_project/project/test/";
-//    QStringList tests = {"info_right.txt", "no", "conf_fight_1.txt", "conf_right_2.txt"};
+class MyWidget : public QWidget
+{
+    Q_OBJECT
 
-//    void memtest();
-//    void test_info_read();
-//    void test_conf_read();
-//    void test_worker();
-//    void any_file_conf();
-//};
+public:
+    MyWidget():i(0)
+    {
+        timer = new QTimer(this);
+        QObject::connect(timer, SIGNAL(timeout()), this, SLOT(list_memory()));
+        timer->start(1000); //time specified in ms
+    }
+    ~MyWidget(){
+        get_list_memory();
+    }
 
-//void Memory(const QString&);
+public slots:
+    void list_memory();
 
-//#endif // TEST_H
+private:
+    QTimer *timer;
+    void get_list_memory();
+    QList<int> list_totalVirtualMem_1 = {0};
+    QList<int> list_virtualMemUsed_1 = {1};
+    QList<int> list_totalPhysMem_1 = {2};
+    QList<int> list_physMemUsed_1 = {3};
+
+protected:
+    unsigned int i;
+};
+
+
+#endif // TEST_H

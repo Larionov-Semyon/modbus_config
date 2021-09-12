@@ -1,4 +1,65 @@
-//#include "test.h"
+#include "test.h"
+
+#include <QDebug>
+
+//QList<int> list_totalVirtualMem1;
+
+void memory(const QString &place){
+    MEMORYSTATUSEX memInfo;
+    memInfo.dwLength = sizeof(MEMORYSTATUSEX);
+    GlobalMemoryStatusEx(&memInfo);
+    DWORDLONG totalVirtualMem = memInfo.ullTotalPageFile;
+
+    DWORDLONG virtualMemUsed = memInfo.ullTotalPageFile - memInfo.ullAvailPageFile;
+
+    DWORDLONG totalPhysMem = memInfo.ullTotalPhys;
+    DWORDLONG physMemUsed = memInfo.ullTotalPhys - memInfo.ullAvailPhys;
+
+    qDebug() << "-- " << place << " -----------";
+    qDebug() << "Virtual Memory: " << totalVirtualMem / (1024*1024);
+    qDebug() << "Virtual Used Memory: " << virtualMemUsed / (1024*1024);
+    qDebug() << "Physical Memory: " << totalPhysMem / (1024*1024);
+    qDebug() << "Physical Memory Used: " << physMemUsed / (1024*1024);
+}
+
+void MyWidget::list_memory(){
+    qDebug() << "+";
+    MEMORYSTATUSEX memInfo;
+    memInfo.dwLength = sizeof(MEMORYSTATUSEX);
+    GlobalMemoryStatusEx(&memInfo);
+    DWORDLONG totalVirtualMem = memInfo.ullTotalPageFile;
+
+    DWORDLONG virtualMemUsed = memInfo.ullTotalPageFile - memInfo.ullAvailPageFile;
+
+    DWORDLONG totalPhysMem = memInfo.ullTotalPhys;
+    DWORDLONG physMemUsed = memInfo.ullTotalPhys - memInfo.ullAvailPhys;
+
+    if (list_totalVirtualMem_1[list_totalVirtualMem_1.size() - 1] != totalVirtualMem / (1024*1024)){
+        list_totalVirtualMem_1.append(totalVirtualMem / (1024*1024));
+    }
+    if (list_virtualMemUsed_1[list_virtualMemUsed_1.size() - 1] != virtualMemUsed / (1024*1024)){
+        list_virtualMemUsed_1.append(virtualMemUsed / (1024*1024));
+    }
+    if (list_totalPhysMem_1[list_totalPhysMem_1.size() - 1] != totalPhysMem / (1024*1024)){
+        list_totalPhysMem_1.append(totalPhysMem / (1024*1024));
+    }
+    if (list_physMemUsed_1[list_physMemUsed_1.size() - 1] != physMemUsed / (1024*1024)){
+        list_physMemUsed_1.append(physMemUsed / (1024*1024));
+    }
+//    list_virtualMemUsed_1 << virtualMemUsed / (1024*1024);
+//    list_totalPhysMem_1 << totalPhysMem / (1024*1024);
+//    list_physMemUsed_1 << physMemUsed / (1024*1024);
+}
+
+void MyWidget::get_list_memory(){
+    qDebug() << list_totalVirtualMem_1;
+    qDebug() << list_virtualMemUsed_1;
+    qDebug() << list_totalPhysMem_1;
+    qDebug() << list_physMemUsed_1;
+}
+
+
+
 
 //Test::Test()
 //{
@@ -49,22 +110,4 @@
 //    if ( (file->readed == "True") & (file->address == "end")) qDebug() << " + Yes";
 //    else qDebug() << " - No";
 //    delete file;
-//}
-
-//void Memory(const QString &place){
-//    MEMORYSTATUSEX memInfo;
-//    memInfo.dwLength = sizeof(MEMORYSTATUSEX);
-//    GlobalMemoryStatusEx(&memInfo);
-//    DWORDLONG totalVirtualMem = memInfo.ullTotalPageFile;
-
-//    DWORDLONG virtualMemUsed = memInfo.ullTotalPageFile - memInfo.ullAvailPageFile;
-
-//    DWORDLONG totalPhysMem = memInfo.ullTotalPhys;
-//    DWORDLONG physMemUsed = memInfo.ullTotalPhys - memInfo.ullAvailPhys;
-
-//    qDebug() << "-- " << place << " -----------";
-//    qDebug() << "Virtual Memory: " << totalVirtualMem / (1024*1024);
-//    qDebug() << "Virtual Used Memory: " << virtualMemUsed / (1024*1024);
-//    qDebug() << "Physical Memory: " << totalPhysMem / (1024*1024);
-//    qDebug() << "Physical Memory Used: " << physMemUsed / (1024*1024);
 //}

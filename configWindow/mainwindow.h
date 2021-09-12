@@ -25,20 +25,15 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
-//signals:
-//    void change_lineResponce();
-
 public:
     explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
-
-    void set_list_com_QComboBox(QComboBox* com_box);
 
 private slots:
     void rename_tab(); //слот для изменения названия Tab
 
     //-------------Кнопки--------------
-    void on_pushModeAdd_clicked(); // кнопка добавить режим
+    void on_pushModeAdd_clicked();    // кнопка добавить режим
     void on_pushModeDelete_clicked(); // удаление режима
     void on_actionOpen_triggered();
     void on_actionSave_triggered();
@@ -70,21 +65,13 @@ private slots:
     void on_textWorkGndOt_textChanged();
 
     void on_comboCOMport_currentTextChanged(const QString& arg1);
-
     void on_textSerial_textChanged();
-
     void on_textSerialEN_textChanged();
-
     void on_textSerialOT_textChanged();
-
     void on_textController_textChanged();
-
     void on_textControllerEN_textChanged();
-
     void on_textControllerOT_textChanged();
-
     void on_lineRESPONSEtime_editingFinished();
-
     void on_lineADDRESS_editingFinished();
 
 private:
@@ -101,18 +88,23 @@ private:
     const int MIN_NUM_TAB = 4;
     const int MAX_NUM_TEXT = 425;
 
-    void read_config(QString&);
-    void set_value_mode(QStringList&);
-    bool delete_all_mode();
-    void set_value();
     void make_new_tab(QString&);
-    bool check_exit();
+
+    void read_config(QString&);
     void delete_all_values();
     void set_default_values();
-    void closeEvent(QCloseEvent* event);
+    void set_value();
     bool inputs_is_clear();
+
+    void set_value_mode(QStringList&);
+    bool delete_all_mode();
+
+    bool check_exit();
+    void closeEvent(QCloseEvent*);
+
     void change_textEdit(QTextEdit*);
     void change_lineResponse();
     void change_lineADDRESS();
+    void set_list_com_QComboBox(QComboBox*);
 };
 #endif // MAINWINDOW_H
