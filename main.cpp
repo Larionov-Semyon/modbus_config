@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    MyWidget test;
+//    MyWidget test;
 
     MainWindow w;
     w.show();
